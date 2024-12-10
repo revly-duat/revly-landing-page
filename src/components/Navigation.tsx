@@ -7,11 +7,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { useRouter } from 'next/router';
+import { useNavigate } from 'react-router-dom';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
+  const navigate = useNavigate();
 
   return (
     <nav className="fixed w-full backdrop-blur-sm z-50 font-almarose">
@@ -61,7 +61,7 @@ export const Navigation = () => {
 label="Get Started Now"
   styleType="primary"
   className="lg:text-base sm:text-xs"
-  onClick={() => router.push("https://brand.revly.se/signup")}
+  onClick={() => navigate("/signup")}
 >
 </Button>
 
@@ -69,7 +69,7 @@ label="Get Started Now"
 label="Get Started Now"
   styleType="primary"
   className="lg:text-base sm:text-xs"
-  onClick={() => router.push("https://brand.revly.se/signup")}
+  onClick={() => navigate("/signup")}
 >
 </Button>
 
@@ -118,7 +118,7 @@ label="Get Started Now"
 label="Get Started Now"
   styleType="primary"
   className="lg:text-base sm:text-xs"
-  onClick={() => router.push("https://brand.revly.se/signup")}
+  onClick={() => navigate("/signup")}
 >
   Get Started Now
 </Button>
@@ -127,7 +127,7 @@ label="Get Started Now"
 label="Get Started Now"
   styleType="primary"
   className="lg:text-base sm:text-xs"
-  onClick={() => router.push("https://brand.revly.se/signup")}
+  onClick={() => navigate("/signup")}
 >
   Get Started Now
 </Button>

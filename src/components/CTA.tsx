@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { useRouter } from 'next/router';
+import { useNavigate } from 'react-router-dom';
 
 
 export const CTA = () => {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary text-white">
@@ -18,7 +18,7 @@ export const CTA = () => {
         label="Get Started Now"
   styleType="primary"
   className="lg:text-base sm:text-xs"
-  onClick={() => router.push("https://brand.revly.se/signup")}
+  onClick={() => navigate("/signup")}
 >
 </Button>
       </div>

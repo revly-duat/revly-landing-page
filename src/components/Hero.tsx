@@ -1,8 +1,8 @@
 import { Button }from "@/components/ui/button";
-import { useRouter } from 'next/router';
+import { useNavigate } from 'react-router-dom';
 
 export const Hero = () => {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   return (
   <div className="bg-gradient-to-b from-cta/80 to-cta/60 pt-64 pb-64 px-4 sm:px-6 lg:px-8">
@@ -21,7 +21,7 @@ export const Hero = () => {
         label="Get Started Now"
   styleType="primary"
   className="lg:text-base sm:text-xs"
-  onClick={() => router.push("https://brand.revly.se/signup")}
+  onClick={() => navigate("/signup")}
 >
 </Button>
         </div>

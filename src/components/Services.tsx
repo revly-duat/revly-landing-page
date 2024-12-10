@@ -1,6 +1,6 @@
 import { Megaphone, Shield, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useRouter } from 'next/router';
+import { useNavigate } from 'react-router-dom';
 
 
 const services = [
@@ -28,7 +28,7 @@ const services = [
 ];
 
 export const Services = () => {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   return (
     <section
@@ -61,7 +61,7 @@ export const Services = () => {
               label="Get Started Now"
   styleType="primary"
   className="lg:text-base sm:text-xs"
-  onClick={() => router.push("https://brand.revly.se/signup")}
+  onClick={() => navigate("/signup")}
 >
 </Button>
             </div>
