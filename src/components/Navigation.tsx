@@ -15,39 +15,42 @@ export const Navigation = () => {
     <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm font-almarose">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
+          <div className="flex items-center space-x-8">
             <a href="/" className="text-2xl font-bold text-primary">
               Revly
             </a>
+            {/* Desktop Navigation moved here */}
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="/" className="nav-link">
+                Home
+              </a>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="nav-link">
+                  Our Services
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem>
+                    <a href="#marketing">Marketing</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="#rms">Reputation Management</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="#courses">Courses</a>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <a href="#about" className="nav-link">
+                About Us
+              </a>
+              <a href="#contact" className="nav-link">
+                Contact Us
+              </a>
+            </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className="nav-link">
-              Home
-            </a>
-            <DropdownMenu>
-              <DropdownMenuTrigger className="nav-link">
-                Our Services
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <a href="#marketing">Marketing</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="#rms">Reputation Management</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="#courses">Courses</a>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <a href="#about" className="nav-link">
-              About Us
-            </a>
-            <a href="#contact" className="nav-link">
-              Contact Us
-            </a>
+          {/* Sign Up Button */}
+          <div className="hidden md:block">
             <Button className="bg-cta hover:bg-cta-hover text-white">
               Sign Up
             </Button>
