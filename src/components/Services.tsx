@@ -1,5 +1,7 @@
 import { Megaphone, Shield, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from 'next/router';
+
 
 const services = [
   {
@@ -26,6 +28,8 @@ const services = [
 ];
 
 export const Services = () => {
+  const router = useRouter();
+
   return (
     <section
       id="services"
@@ -53,9 +57,13 @@ export const Services = () => {
               <service.icon className="w-12 h-12 text-cta mb-6" />
               <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
               <p className="text-gray-600 mb-6">{service.description}</p>
-              <Button className="w-full bg-primary hover:bg-secondary-hover">
-                Learn More
-              </Button>
+              <Button
+              label="Get Started Now"
+  styleType="primary"
+  className="lg:text-base sm:text-xs"
+  onClick={() => router.push("https://brand.revly.se/signup")}
+>
+</Button>
             </div>
           ))}
         </div>

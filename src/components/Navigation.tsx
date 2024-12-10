@@ -7,17 +7,23 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import { useRouter } from 'next/router';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   return (
-    <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm font-almarose">
+    <nav className="fixed w-full backdrop-blur-sm z-50 font-almarose">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-8">
-            <a href="/" className="text-2xl font-bold text-primary">
-              Revly
+            <a href="/">
+            <img
+                className="block h-10 w-auto"
+                src="revly_logo_transparent.png"
+                alt="Revly logo"
+              />
             </a>
             {/* Desktop Navigation moved here */}
             <div className="hidden md:flex items-center space-x-8">
@@ -26,14 +32,14 @@ export const Navigation = () => {
               </a>
               <DropdownMenu>
                 <DropdownMenuTrigger className="nav-link">
-                  Our Services
+                  Services
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuItem>
                     <a href="#marketing">Marketing</a>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <a href="#rms">Reputation Management</a>
+                    <a href="#rms">RMS</a>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
                     <a href="#courses">Courses</a>
@@ -41,22 +47,32 @@ export const Navigation = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
               <a href="#about" className="nav-link">
-                About Us
+                Learn more
               </a>
               <a href="#contact" className="nav-link">
-                Contact Us
+                Contact
               </a>
             </div>
           </div>
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="border-cta text-cta hover:bg-cta hover:text-white">
-              Sign In
-            </Button>
-            <Button className="bg-cta hover:bg-cta-hover text-white">
-              Sign Up
-            </Button>
+          <Button
+label="Get Started Now"
+  styleType="primary"
+  className="lg:text-base sm:text-xs"
+  onClick={() => router.push("https://brand.revly.se/signup")}
+>
+</Button>
+
+<Button
+label="Get Started Now"
+  styleType="primary"
+  className="lg:text-base sm:text-xs"
+  onClick={() => router.push("https://brand.revly.se/signup")}
+>
+</Button>
+
           </div>
 
           {/* Mobile menu button */}
@@ -98,12 +114,24 @@ export const Navigation = () => {
               >
                 Contact Us
               </a>
-              <Button variant="outline" className="w-full border-cta text-cta hover:bg-cta hover:text-white mt-4">
-                Sign In
-              </Button>
-              <Button className="w-full bg-cta hover:bg-cta-hover text-white mt-4">
-                Sign Up
-              </Button>
+              <Button
+label="Get Started Now"
+  styleType="primary"
+  className="lg:text-base sm:text-xs"
+  onClick={() => router.push("https://brand.revly.se/signup")}
+>
+  Get Started Now
+</Button>
+
+<Button
+label="Get Started Now"
+  styleType="primary"
+  className="lg:text-base sm:text-xs"
+  onClick={() => router.push("https://brand.revly.se/signup")}
+>
+  Get Started Now
+</Button>
+
             </div>
           </div>
         )}
