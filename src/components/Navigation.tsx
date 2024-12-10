@@ -49,8 +49,11 @@ export const Navigation = () => {
             </div>
           </div>
 
-          {/* Sign Up Button */}
-          <div className="hidden md:block">
+          {/* Auth Buttons */}
+          <div className="hidden md:flex items-center space-x-4">
+            <Button variant="outline" className="border-cta text-cta hover:bg-cta hover:text-white">
+              Sign In
+            </Button>
             <Button className="bg-cta hover:bg-cta-hover text-white">
               Sign Up
             </Button>
@@ -95,6 +98,9 @@ export const Navigation = () => {
               >
                 Contact Us
               </a>
+              <Button variant="outline" className="w-full border-cta text-cta hover:bg-cta hover:text-white mt-4">
+                Sign In
+              </Button>
               <Button className="w-full bg-cta hover:bg-cta-hover text-white mt-4">
                 Sign Up
               </Button>
