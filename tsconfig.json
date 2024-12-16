@@ -15,28 +15,28 @@
         "./src/*"
       ]
     },
-    "noImplicitAny": false,
-    "noUnusedParameters": false,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "noUnusedLocals": false,
-    "strictNullChecks": false,
-    "target": "es5",
+    "target": "es2020", // Updated target for modern JavaScript
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "incremental": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "moduleResolution": "node"
+    "module": "esnext", // Required for Next.js
+    "moduleResolution": "node", // Node resolution for imports
+    "jsx": "preserve", // Recommended JSX setting for Next.js
+    "strict": true, // Enforce stricter type checking
+    "noImplicitAny": true, // Prevent implicit any
+    "strictNullChecks": true, // Ensure null and undefined are handled explicitly
+    "forceConsistentCasingInFileNames": true, // Enforce consistent casing
+    "esModuleInterop": true, // Required for module interop
+    "resolveJsonModule": true, // Allow importing JSON
+    "skipLibCheck": true, // Skip type checking for libraries
+    "allowJs": true, // Allow JavaScript files
+    "noUnusedLocals": true, // Enable to catch unused local variables
+    "noUnusedParameters": true, // Enable to catch unused function parameters
+    "noEmit": true, // Prevent emitting compiled files
+    "incremental": true, // Enable incremental builds
+    "isolatedModules": true // Enforce module boundaries
   },
   "include": [
     "next-env.d.ts",
