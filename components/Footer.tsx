@@ -67,8 +67,9 @@ export const Footer = () => {
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
-            <p className="text-gray-600 mb-2">contact@revly.com</p>
-            <p className="text-gray-600 mb-4">+1 (555) 123-4567</p>
+            <div className="text-gray-600 mb-4">
+              <a href="mailto:info@revly.se">info@revly.se</a>
+            </div>
             <div className="flex space-x-4">
               <a
                 href="#"

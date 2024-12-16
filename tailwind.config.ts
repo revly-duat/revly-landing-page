@@ -3,7 +3,7 @@ import type { Config } from "tailwindcss";
 export default {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}", // Adjust paths as necessary
+    "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
@@ -49,7 +49,7 @@ export default {
         },
       },
       fontFamily: {
-        almarose: ["Almarose", "sans-serif"], // Add your custom font family
+        almarose: ["Almarose", "sans-serif"],
       },
       fontWeight: {
         almaroseThin: "100",
@@ -76,15 +76,23 @@ export default {
           "0%": { backgroundPosition: "200% 10%" },
           "100%": { backgroundPosition: "0% 10%" },
         },
+        glow: {
+          "0%, 100%": { boxShadow: "0 0 10px rgba(255, 160, 0, 0.8)" },
+          "50%": { boxShadow: "0 0 20px rgba(255, 160, 0, 1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in-up": "fade-in-up 0.5s ease-out forwards",
+        "fade-in-up": "fade-in-up 1s ease-out forwards",
         "gradient-move": "gradient-move 5s linear infinite",
+        glow: "glow 2s infinite",
       },
       backgroundImage: {
-        heroGradient: "linear-gradient(90deg, #FFA000, #FFC107, #FFA000)",
+        heroGradient:
+          "linear-gradient(90deg, #FFA000,rgb(255, 203, 48), #FFA000)",
+        marketingGradient: "linear-gradient(90deg, #FF7043, #FFB74D, #FF7043)",
+        rmsGradient: "linear-gradient(90deg, #FFA000, #FF6F91, #FFA000)",
       },
     },
   },

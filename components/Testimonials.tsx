@@ -41,7 +41,7 @@ export const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-gray-50 rounded-lg p-8 shadow-md"
+              className="bg-gray-50 rounded-xl p-8 shadow-md"
               style={{
                 animationDelay: `${index * 0.1}s`,
               }}

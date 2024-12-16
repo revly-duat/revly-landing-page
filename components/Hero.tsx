@@ -1,34 +1,53 @@
 import Button from "components/ui/Button/index";
-import { useRouter } from "next/router";
+import { ChevronDown } from "lucide-react";
 
-export const Hero = () => {
-  const router = useRouter();
+interface HeroSectionProps {
+  title: string;
+  subtitle: string;
+  buttonText: string;
+  buttonLink: string;
+  buttonType:
+    | "primary"
+    | "primarySmall"
+    | "secondary"
+    | "secondarySmall"
+    | "activeSmall"
+    | "disabled"
+    | "transparent";
+  gradientClass?: string;
+}
 
+export const HeroSection: React.FC<HeroSectionProps> = ({
+  title,
+  subtitle,
+  buttonText,
+  buttonLink,
+  buttonType,
+  gradientClass,
+}) => {
   return (
-    <div className="bg-heroGradient bg-[length:200%_200%] animate-gradient-move pt-80 pb-32 px-4 sm:px-6 lg:px-8">
-      <div className="absolute inset-0"></div>
-      <div className="relative max-w-7xl mx-auto">
-        <div className="text-center">
-          {/* Heading with Fade-in Animation */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8 animate-fade-in-up">
-            Control Your Reputation with Revly
-          </h1>
-
-          {/* Subtext with Fade-in Animation */}
-          <p className="text-lg sm:text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto animate-fade-in-up">
-            Monitor reviews and engage on social media effortlessly with our
-            comprehensive management platform
-          </p>
-
-          {/* Button with Fade-in Animation */}
-          <div className="mt-32 flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up">
-            <Button
-              label="Get Started Now"
-              styleType="primary"
-              additionalClasses="bg-cta text-white px-10 py-3 font-almaroseBold text-xl rounded-xl shadow-[0_0_20px_5px_rgba(255,255,255,0.5)] hover:shadow-[0_0_25px_8px_rgba(255,255,255,0.7)]"
-              onClick={() => router.push("/signup")}
-            ></Button>
-          </div>
+    <div
+      className={`${gradientClass} min-h-screen flex flex-col justify-between`}
+    >
+      <div className="relative flex-grow flex flex-col justify-center items-center px-4">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 animate-fade-in-up text-center">
+          {title}
+        </h1>
+        <p className="text-lg sm:text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto animate-fade-in-up text-center">
+          {subtitle}
+        </p>
+        <div className="animate-fade-in-up lg:mt-24">
+          <Button
+            label={buttonText}
+            styleType={buttonType}
+            additionalClasses="bg-cta text-white py-3 font-almaroseBold w-64 sm:w-72 text-lg sm:text-xl"
+            onClick={() => (window.location.href = buttonLink)}
+          ></Button>
+        </div>
+      </div>
+      <div className="absolute bottom-10 w-full flex justify-center">
+        <div className="animate-bounce">
+          <ChevronDown className="h-16 w-16 text-white" />
         </div>
       </div>
     </div>
