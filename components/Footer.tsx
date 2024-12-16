@@ -67,7 +67,7 @@ export const Footer = () => {
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
-            <div className="text-gray-600 mb-4">
+            <div className="text-gray-600 hover:text-cta mb-4">
               <a href="mailto:info@revly.se">info@revly.se</a>
             </div>
             <div className="flex space-x-4">

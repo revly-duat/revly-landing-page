@@ -70,7 +70,7 @@ const RMSPage = () => {
         />
         <FeaturesSection
           features={rmsFeatures}
-          heading="Features"
+          heading="RMS Features"
           subheading="Discover the tools you need to simplify reputation management and drive online success."
         />
         <section className="py-16 px-6 sm:px-6 lg:px-8 bg-white">

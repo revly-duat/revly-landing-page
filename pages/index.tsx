@@ -72,16 +72,11 @@ function Home() {
           subtitle="Simplifying success through AI-powered insights, expert marketing, and
           professional training to help your business lead in any market."
           buttonType="secondary"
-          buttonText="Get Started Now"
-          buttonLink="https://brand.revly.se/signup"
+          buttonText="Learn More"
+          buttonLink="/services"
           gradientClass="bg-heroGradient bg-[length:200%_200%] animate-gradient-move"
         />
         <Services />
-        <FeaturesSection
-          features={landingPageFeatures}
-          heading="Features"
-          subheading="Discover the core features that make Revly the right choice for your business growth."
-        />
         <Testimonials />
         <CTA />
         <Footer />

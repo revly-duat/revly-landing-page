@@ -40,22 +40,15 @@ const AboutPage = () => {
               hand-in-hand with clients to achieve their goals is what makes
               this journey exciting.
             </p>
-            <blockquote className="border-l-4 border-cta pl-4 text-primary italic">
-              "Collaboration is the heart of Revly—your growth is our growth."
-              <br />
-              <span className="block mt-2 text-sm font-bold">
-                - Karl Montenius
-              </span>
-            </blockquote>
             <p className="text-lg leading-relaxed">
               What makes Revly unique is our comprehensive approach to business
               growth. We don’t just focus on one aspect of your business; we
-              provide a full suite of solutions. From our developing Reputation
-              Management System (RMS) to the upcoming training programs and our
-              active media buying services, Revly offers a complete package.
-              Whether it’s strengthening your online reputation, expanding your
-              market reach, or scaling your business, we have the tools and
-              expertise to help you succeed.
+              provide a full suite of solutions. From our Reputation Management
+              System (RMS) to the training programs and our media buying
+              services, Revly offers a complete package. Whether it’s
+              strengthening your online reputation, expanding your market reach,
+              or scaling your business, we have the tools and expertise to help
+              you succeed.
             </p>
             <p className="text-lg leading-relaxed">
               At Revly, we’re all about creating real value for our clients. Our

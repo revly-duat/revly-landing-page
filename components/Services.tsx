@@ -51,7 +51,7 @@ export const Services = () => {
             >
               <div className="flex flex-col items-center">
                 <service.icon className="h-12 w-12 text-cta mb-4" />
-                <h3 className="text-xl font-almaroseSemiBold text-primary mb-2">
+                <h3 className="text-xl font-almaroseSemiBold text-center text-primary mb-2">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 text-center mb-6">
