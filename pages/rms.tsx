@@ -50,7 +50,7 @@ const RMSPage = () => {
   return (
     <>
       <Head>
-        <title>Revly RMS - Manage Your Online Presence</title>
+        <title>Revly RMS - Manage Your Online Reputation</title>
         <meta
           name="description"
           content="Manage reviews, social media, analytics, and content efficiently with Revly's RMS. Streamline your online presence and scale your business."

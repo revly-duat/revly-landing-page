@@ -59,7 +59,7 @@ function Marketing() {
   return (
     <>
       <Head>
-        <title>Revly - Expert Marketing Solutions</title>
+        <title>Revly Marketing - Professional Media Buying</title>
         <meta
           name="description"
           content="Revly drives business growth through expert marketing solutions. Specializing in media buying and targeted advertising, we help businesses reach and engage their audience effectively."
@@ -111,7 +111,15 @@ function Marketing() {
             back to you shortly.
           </p>
         </div>
-        <ContactForm />
+        <ContactForm
+          fields={{
+            company: true,
+            name: true,
+            email: true,
+            message: true,
+          }}
+        />
+
         <Footer />
       </div>
     </>

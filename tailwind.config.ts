@@ -93,6 +93,7 @@ export default {
           "linear-gradient(90deg, #FFA000,rgb(255, 203, 48), #FFA000)",
         marketingGradient: "linear-gradient(90deg, #FF7043, #FFB74D, #FF7043)",
         rmsGradient: "linear-gradient(90deg, #FFA000, #FF6F91, #FFA000)",
+        academyGradient: "linear-gradient(90deg, #FFA000, #FF7043, #FFA000)",
       },
     },
   },

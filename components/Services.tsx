@@ -21,11 +21,11 @@ const services = [
   },
   {
     icon: GraduationCap,
-    title: "Courses",
+    title: "Academy",
     description:
       "Upskill your team with industry-focused courses in Data and IT to drive innovation.",
     id: "courses",
-    link: "/courses",
+    link: "/academy",
   },
 ];
 
@@ -33,7 +33,10 @@ export const Services = () => {
   const router = useRouter();
 
   return (
-    <section id="services" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <section
+      id="services"
+      className="scroll-mt-[calc(50vh-96px)] py-16 px-4 sm:px-6 lg:px-8 bg-white"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">

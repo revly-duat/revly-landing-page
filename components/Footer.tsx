@@ -14,17 +14,17 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-gray-600 hover:text-cta">
+                <a href="/#services" className="text-gray-600 hover:text-cta">
                   Our Services
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-gray-600 hover:text-cta">
+                <a href="/about" className="text-gray-600 hover:text-cta">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-gray-600 hover:text-cta">
+                <a href="/contact" className="text-gray-600 hover:text-cta">
                   Contact Us
                 </a>
               </li>
@@ -34,18 +34,18 @@ export const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#marketing" className="text-gray-600 hover:text-cta">
+                <a href="/marketing" className="text-gray-600 hover:text-cta">
                   Marketing
                 </a>
               </li>
               <li>
-                <a href="#rms" className="text-gray-600 hover:text-cta">
+                <a href="/rms" className="text-gray-600 hover:text-cta">
                   Reputation Management
                 </a>
               </li>
               <li>
-                <a href="#courses" className="text-gray-600 hover:text-cta">
-                  Courses
+                <a href="/academy" className="text-gray-600 hover:text-cta">
+                  Revly Academy
                 </a>
               </li>
             </ul>
@@ -59,7 +59,7 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/terms" className="text-gray-600 hover:text-cta">
+                <a href="/tos" className="text-gray-600 hover:text-cta">
                   Terms of Service
                 </a>
               </li>
@@ -71,27 +71,6 @@ export const Footer = () => {
               <a href="mailto:info@revly.se">info@revly.se</a>
             </div>
             <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-gray-600 hover:text-cta"
-                aria-label="Facebook"
-              >
-                <Facebook size={20} />
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 hover:text-cta"
-                aria-label="Twitter"
-              >
-                <Twitter size={20} />
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 hover:text-cta"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} />
-              </a>
               <a
                 href="#"
                 className="text-gray-600 hover:text-cta"

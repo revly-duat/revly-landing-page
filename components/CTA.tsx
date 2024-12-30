@@ -25,7 +25,7 @@ export const CTA = () => {
             label="Contact us"
             styleType="transparent"
             additionalClasses="text-white text-md font-almaroseBold"
-            onClick={() => router.push("https://brand.revly.se/signup")}
+            onClick={() => router.push("/contact")}
           ></Button>
         </div>
       </div>

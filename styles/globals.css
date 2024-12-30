@@ -6,4 +6,8 @@
 body {
   @apply bg-gray-100 text-gray-900;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 @import "/public/fonts/fonts.css";

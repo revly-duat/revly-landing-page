@@ -19,7 +19,7 @@ const contactFAQs = [
   {
     question: "How can I get started?",
     answer:
-      "Getting started with Revly is easy. Simply fill out our contact form or email us at info@revly.se to start the conversation. For media buying, we’ll discuss your business goals and current advertising strategies to create a tailored plan. If you're interested in our training courses, we’ll help you find the right program for your needs, whether it’s a free Higher Vocational Education (HVE) course or a specialized paid course. For businesses seeking to improve their online reputation, our RMS platform offers tools and insights to manage reviews, engage with customers, and track performance—all designed to help your business succeed.",
+      "Getting started with Revly is easy. Simply fill out our contact form or email us at info@revly.se to start the conversation.",
   },
 ];
 
@@ -72,7 +72,14 @@ function ContactPage() {
               .
             </p>
           </div>
-          <ContactForm />
+          <ContactForm
+            fields={{
+              company: false,
+              name: true,
+              email: true,
+              message: true,
+            }}
+          />
         </section>
         <FAQSection title="FAQ" faqs={contactFAQs} />
         <Footer />

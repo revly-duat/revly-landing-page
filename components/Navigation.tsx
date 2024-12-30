@@ -40,7 +40,7 @@ export const Navigation = () => {
                     Marketing
                   </DropdownMenuItem>
                   <DropdownMenuItem href="/rms">RMS</DropdownMenuItem>
-                  <DropdownMenuItem href="/courses">Courses</DropdownMenuItem>
+                  <DropdownMenuItem href="/academy">Academy</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
               <a href="/about" className="nav-link">
