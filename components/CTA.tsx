@@ -11,15 +11,15 @@ export const CTA = () => {
           Discover how Revly can help your business grow
         </h2>
         <p className="text-lg sm:text-xl mb-12 opacity-90">
-          Get started today with our RMS, or contact us to learn more about our
-          marketing service or our courses.
+          Get informed about our RMS, or contact us to learn more about our
+          marketing services or our courses.
         </p>
         <div className="flex space-x-4 justify-center">
           <Button
             label="Get Started Now"
             styleType="primary"
             additionalClasses="font-almaroseBold text-md"
-            onClick={() => router.push("https://brand.revly.se/signup")}
+            onClick={() => router.push("/rms")}
           ></Button>
           <Button
             label="Contact us"

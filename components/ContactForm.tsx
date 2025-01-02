@@ -63,7 +63,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   return (
     <section
       id="contactForm"
-      className="scroll-mt-[calc(50vh-96px)] py-32 px-6 sm:px-6 lg:px-8 bg-gray-100"
+      className="scroll-mt-[calc(20vh-96px)] py-32 px-6 sm:px-6 lg:px-8 bg-gray-100"
     >
       <div className="max-w-4xl mx-auto text-center mb-8">
         <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
