@@ -41,14 +41,12 @@ const academyFeatures = [
   {
     icon: Target,
     title: "Expert Instructors",
-    description:
-      "Learn from experienced professionals who are leaders in their fields.",
+    description: "Learn from experienced professionals who are leaders in their fields.",
   },
   {
     icon: Globe,
     title: "Global Accessibility",
-    description:
-      "Join our online courses from anywhere in the world at your convenience.",
+    description: "Join our online courses from anywhere in the world at your convenience.",
   },
 ];
 
