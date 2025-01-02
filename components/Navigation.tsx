@@ -20,7 +20,7 @@ export const Navigation = () => {
           <div className="flex items-center justify-center space-x-8">
             <a href="/">
               <img
-                className="block h-10 md:h-12 w-auto"
+                className="block h-10 md:h-10 w-auto"
                 src="revly_logo_transparent.png"
                 alt="Revly logo"
               />
@@ -90,7 +90,7 @@ export const Navigation = () => {
                 Home
               </a>
               <a
-                href="#services"
+                href="/#services"
                 className="block px-3 py-2 text-primary hover:text-cta"
               >
                 Our Services

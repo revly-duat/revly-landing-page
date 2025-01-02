@@ -35,7 +35,7 @@ export const Services = () => {
   return (
     <section
       id="services"
-      className="scroll-mt-[calc(50vh-96px)] py-16 px-4 sm:px-6 lg:px-8 bg-white"
+      className="scroll-mt-[calc(50vh-96px)] py-32 px-4 sm:px-6 lg:px-8 bg-white"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">

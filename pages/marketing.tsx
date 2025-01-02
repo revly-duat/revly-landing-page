@@ -2,8 +2,6 @@ import Head from "next/head";
 import { NextSeo } from "next-seo";
 import { Navigation } from "components/Navigation";
 import { FeaturesSection } from "components/Features";
-import { Testimonials } from "components/Testimonials";
-import { CTA } from "components/CTA";
 import { Footer } from "components/Footer";
 import { HeroSection } from "components/Hero";
 import { BarChart, Target, Globe } from "lucide-react";
@@ -102,16 +100,10 @@ function Marketing() {
         />
         <StatsSection />
         <FAQSection title="FAQ" faqs={marketingFAQs} />
-        <div className="max-w-4xl mx-auto text-center mb-8 pt-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
-            Get in Touch
-          </h2>
-          <p className="text-gray-600">
-            Ready to grow your business? Fill out the form below, and we’ll get
-            back to you shortly.
-          </p>
-        </div>
         <ContactForm
+          title="Get in Touch"
+          subtitle="Ready to grow your business? Fill out the form below, and we’ll get
+            back to you shortly."
           fields={{
             company: true,
             name: true,

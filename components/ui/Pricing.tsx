@@ -86,10 +86,6 @@ export const Pricing = () => {
     "monthly"
   );
 
-  const toggleBillingCycle = () => {
-    setBillingCycle((prev) => (prev === "monthly" ? "yearly" : "monthly"));
-  };
-
   return (
     <section className="pt-16 pb-32 px-6 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-7xl mx-auto text-center">

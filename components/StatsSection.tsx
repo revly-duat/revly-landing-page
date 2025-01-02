@@ -25,7 +25,7 @@ const stats = [
 
 export const StatsSection = () => {
   return (
-    <section className="py-16 px-6 sm:px-6 lg:px-8 bg-white text-primary">
+    <section className="py-32 px-6 sm:px-6 lg:px-8 bg-white text-primary">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">

@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Linkedin } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -72,7 +72,7 @@ export const Footer = () => {
             </div>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/revly-ab"
                 className="text-gray-600 hover:text-cta"
                 aria-label="LinkedIn"
               >

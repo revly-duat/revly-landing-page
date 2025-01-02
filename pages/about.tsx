@@ -64,7 +64,7 @@ const AboutPage = () => {
               label="Explore Our Services"
               styleType="primary"
               additionalClasses="px-8"
-              onClick={() => router.push("/services")}
+              onClick={() => router.push("/#services")}
             ></Button>
           </div>
         </section>

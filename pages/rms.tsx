@@ -11,7 +11,7 @@ import {
   Calendar,
   Settings,
 } from "lucide-react";
-import { Pricing } from "components/ui/Pricing";
+import { ContactForm } from "components/ContactForm";
 
 const rmsFeatures = [
   {
@@ -113,7 +113,17 @@ const RMSPage = () => {
             </div>
           </div>
         </section>
-        <Pricing />
+        <ContactForm
+          title="Lets us know you're interested"
+          subtitle="Fill out the form below, and we’ll get
+            back to you with more information about our upcoming RMS."
+          fields={{
+            company: false,
+            name: true,
+            email: true,
+            message: true,
+          }}
+        />
         <CTA />
         <Footer />
       </div>

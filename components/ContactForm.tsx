@@ -2,6 +2,8 @@ import { useState } from "react";
 import emailjs from "emailjs-com";
 
 interface ContactFormProps {
+  title: string;
+  subtitle: string;
   fields: {
     company?: boolean;
     name: boolean;
@@ -10,7 +12,11 @@ interface ContactFormProps {
   };
 }
 
-export const ContactForm: React.FC<ContactFormProps> = ({ fields }) => {
+export const ContactForm: React.FC<ContactFormProps> = ({
+  title,
+  subtitle,
+  fields,
+}) => {
   const [formData, setFormData] = useState({
     company: "",
     name: "",
@@ -57,8 +63,14 @@ export const ContactForm: React.FC<ContactFormProps> = ({ fields }) => {
   return (
     <section
       id="contactForm"
-      className="scroll-mt-[calc(50vh-96px)] pb-16 px-6 sm:px-6 lg:px-8 bg-gray-100"
+      className="scroll-mt-[calc(50vh-96px)] py-32 px-6 sm:px-6 lg:px-8 bg-gray-100"
     >
+      <div className="max-w-4xl mx-auto text-center mb-8">
+        <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
+          {title}
+        </h2>
+        <p className="text-gray-600">{subtitle}</p>
+      </div>
       <form
         onSubmit={handleSubmit}
         className="max-w-3xl mx-auto rounded-xl p-6"

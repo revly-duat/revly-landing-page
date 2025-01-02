@@ -5,12 +5,12 @@ export const CTA = () => {
   const router = useRouter();
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary text-white">
+    <section className="py-32 px-4 sm:px-6 lg:px-8 bg-primary text-white">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl font-bold mb-6">
           Discover how Revly can help your business grow
         </h2>
-        <p className="text-lg sm:text-xl mb-8 opacity-90">
+        <p className="text-lg sm:text-xl mb-12 opacity-90">
           Get started today with our RMS, or contact us to learn more about our
           marketing service or our courses.
         </p>

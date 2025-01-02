@@ -2,34 +2,10 @@ import Head from "next/head";
 import { NextSeo } from "next-seo";
 import { Navigation } from "components/Navigation";
 import { HeroSection } from "components/Hero";
-import { FeaturesSection } from "components/Features";
 import { Services } from "components/Services";
-import { Testimonials } from "components/Testimonials";
 import { CTA } from "components/CTA";
 import { Footer } from "components/Footer";
-import { Laptop2, MessageCircle, TrendingUp } from "lucide-react";
 import { FAQSection } from "components/ui/FAQ";
-
-const landingPageFeatures = [
-  {
-    icon: TrendingUp,
-    title: "Marketing",
-    description:
-      "Expand your business with targeted campaigns. Reach a larger audience and scale your operations effectively using data-driven strategies.",
-  },
-  {
-    icon: MessageCircle,
-    title: "Reputation Management System",
-    description:
-      "Unify your online reputation management with review tools, social media insights, and AI-powered analytics to maintain your competitive edge.",
-  },
-  {
-    icon: Laptop2,
-    title: "Revly Academy",
-    description:
-      "Empower your team with skills in Data, IT, and analytics through hands-on courses led by industry professionals.",
-  },
-];
 
 const seoTitle = "Revly - Simplify Review Management, Marketing & Training";
 const seoDescription =
@@ -102,7 +78,7 @@ function Home() {
           professional training to help your business lead in any market."
           buttonType="secondary"
           buttonText="Learn More"
-          buttonLink="/services"
+          buttonLink="#services"
           gradientClass="bg-heroGradient bg-[length:200%_200%] animate-gradient-move"
         />
         <Services />

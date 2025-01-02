@@ -55,32 +55,17 @@ function ContactPage() {
       />
       <div className="min-h-screen">
         <Navigation />
-        <section className="pt-32 pb-2 px-6 sm:px-6 lg:px-8 bg-gray-100">
-          <div className="max-w-7xl mx-auto text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl font-bold text-primary mb-4">
-              Get in Touch
-            </h1>
-            <p className="text-gray-600">
-              Have questions or need assistance? Fill out the form below or
-              email us at{" "}
-              <a
-                href="mailto:info@revly.se"
-                className="text-cta hover:underline"
-              >
-                info@revly.se
-              </a>
-              .
-            </p>
-          </div>
-          <ContactForm
-            fields={{
-              company: false,
-              name: true,
-              email: true,
-              message: true,
-            }}
-          />
-        </section>
+        <ContactForm
+          title="Get in Touch"
+          subtitle="Have questions or need assistance? Fill out the form below or
+              email us at info@revly.se."
+          fields={{
+            company: false,
+            name: true,
+            email: true,
+            message: true,
+          }}
+        />
         <FAQSection title="FAQ" faqs={contactFAQs} />
         <Footer />
       </div>

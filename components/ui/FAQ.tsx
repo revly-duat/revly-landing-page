@@ -12,9 +12,9 @@ interface FAQProps {
 
 export const FAQSection: React.FC<FAQProps> = ({ title, faqs }) => {
   return (
-    <section className="py-16 px-6 sm:px-6 lg:px-8 bg-white">
+    <section className="py-32 px-6 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-8 text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-16 text-center">
           {title}
         </h2>
         <div className="space-y-6">
