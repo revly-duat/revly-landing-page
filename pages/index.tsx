@@ -76,6 +76,7 @@ function Home() {
           buttonText="Learn More"
           buttonLink="#services"
           gradientClass="bg-heroGradient bg-[length:200%_200%] animate-gradient-move"
+          animatedText={true}
         />
         <Services />
         <CTA />

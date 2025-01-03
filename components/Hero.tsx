@@ -15,6 +15,7 @@ interface HeroSectionProps {
     | "disabled"
     | "transparent";
   gradientClass?: string;
+  animatedText?: boolean; // Boolean to toggle animated text
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
@@ -24,19 +25,35 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   buttonLink,
   buttonType,
   gradientClass,
+  animatedText,
 }) => {
   return (
     <div
       className={`${gradientClass} min-h-screen flex flex-col justify-between`}
     >
       <div className="relative flex-grow flex flex-col justify-center items-center px-4">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 animate-fade-in-up text-center">
-          {title}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 text-center">
+          {animatedText ? (
+            <>
+              <span className="overflow-hidden">Simplify Your Business </span>
+              <span className="inline-flex flex-col h-[calc(theme(fontSize.4xl)*theme(lineHeight.tight))] sm:h-[calc(theme(fontSize.5xl)*theme(lineHeight.tight))] md:h-[calc(theme(fontSize.6xl)*theme(lineHeight.tight))] overflow-hidden">
+                <ul className="block animate-text-slide text-left leading-tight [&_li]:block">
+                  <li>Growth</li>
+                  <li>Marketing</li>
+                  <li>Reputation</li>
+                  <li>Training</li>
+                  <li aria-hidden="true">Growth</li>
+                </ul>
+              </span>
+            </>
+          ) : (
+            title
+          )}
         </h1>
-        <p className="text-lg sm:text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto animate-fade-in-up text-center">
+        <p className="text-lg sm:text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto text-center">
           {subtitle}
         </p>
-        <div className="animate-fade-in-up lg:mt-24">
+        <div className="mt-12 lg:mt-24">
           <Button
             label={buttonText}
             styleType={buttonType}

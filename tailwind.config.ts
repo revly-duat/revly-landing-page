@@ -80,6 +80,23 @@ export default {
           "0%, 100%": { boxShadow: "0 0 10px rgba(255, 160, 0, 0.8)" },
           "50%": { boxShadow: "0 0 20px rgba(255, 160, 0, 1)" },
         },
+        "text-slide": {
+          "0%, 20%": {
+            transform: "translateY(0%)",
+          },
+          "25%, 45%": {
+            transform: "translateY(-20%)",
+          },
+          "50%, 70%": {
+            transform: "translateY(-40%)",
+          },
+          "75%, 95%": {
+            transform: "translateY(-60%)",
+          },
+          "100%": {
+            transform: "translateY(-80%)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -87,6 +104,7 @@ export default {
         "fade-in-up": "fade-in-up 1s ease-out forwards",
         "gradient-move": "gradient-move 5s linear infinite",
         glow: "glow 2s infinite",
+        "text-slide": "text-slide 10s cubic-bezier(0.83, 0, 0.17, 1) infinite", // Anpassa tiden till dina behov
       },
       backgroundImage: {
         heroGradient:
