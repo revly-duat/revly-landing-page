@@ -1,21 +1,41 @@
 import Head from "next/head";
 import { Navigation } from "components/Navigation";
 import { Footer } from "components/Footer";
+import { NextSeo } from "next-seo";
+
+const seoTitle = "Revly - Terms of Service";
+const seoDescription =
+  "Learn about Revly's Terms of Service and your responsibilities when using our platform and services.";
+const seoUrl = "https://www.revly.se/rms";
+const faviconAlt = "Revly - Terms of Service";
 
 const TermsOfServicePage = () => {
   return (
     <>
       <Head>
-        <title>Revly - Terms of Service</title>
-        <meta
-          name="description"
-          content="Learn about Revly's Terms of Service and your responsibilities when using our platform and services."
-        />
         <link rel="icon" href="/revly_favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+      <NextSeo
+        title={seoTitle}
+        description={seoDescription}
+        openGraph={{
+          url: seoUrl,
+          title: seoTitle,
+          description: seoDescription,
+          images: [
+            {
+              url: "/revly_open_graph.png",
+              width: 1200,
+              height: 630,
+              alt: faviconAlt,
+              type: "image/png",
+            },
+          ],
+        }}
+      />
       <div className="min-h-screen bg-gray-50">
         <Navigation />
-        {/* Hero Section */}
         <section className="py-40 px-6 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center mb-8">
             <h1 className="text-5xl font-extrabold text-primary mb-6">
@@ -26,7 +46,6 @@ const TermsOfServicePage = () => {
               services. Please read them carefully.
             </p>
           </div>
-          {/* Terms of Service Content */}
           <div className="max-w-4xl mx-auto text-gray-600 space-y-8">
             <h2 className="text-2xl font-bold text-primary">
               1. Services Offered

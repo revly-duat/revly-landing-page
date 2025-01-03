@@ -12,6 +12,7 @@ import {
   Settings,
 } from "lucide-react";
 import { ContactForm } from "components/ContactForm";
+import { NextSeo } from "next-seo";
 
 const rmsFeatures = [
   {
@@ -46,17 +47,37 @@ const rmsFeatures = [
   },
 ];
 
+const seoTitle = "Revly RMS - Manage Your Online Reputation";
+const seoDescription =
+  "Manage reviews, social media, analytics, and content efficiently with Revly's RMS. Streamline your online presence and scale your business.";
+const seoUrl = "https://www.revly.se/rms";
+const faviconAlt = "Revly RMS - Manage Your Online Reputation";
+
 const RMSPage = () => {
   return (
     <>
       <Head>
-        <title>Revly RMS - Manage Your Online Reputation</title>
-        <meta
-          name="description"
-          content="Manage reviews, social media, analytics, and content efficiently with Revly's RMS. Streamline your online presence and scale your business."
-        />
         <link rel="icon" href="/revly_favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+      <NextSeo
+        title={seoTitle}
+        description={seoDescription}
+        openGraph={{
+          url: seoUrl,
+          title: seoTitle,
+          description: seoDescription,
+          images: [
+            {
+              url: "/revly_open_graph.png",
+              width: 1200,
+              height: 630,
+              alt: faviconAlt,
+              type: "image/png",
+            },
+          ],
+        }}
+      />
       <div className="min-h-screen">
         <Navigation />
         <HeroSection

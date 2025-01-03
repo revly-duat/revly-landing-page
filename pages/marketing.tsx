@@ -47,7 +47,8 @@ const marketingPageFeatures = [
       "Expand your reach and grow your brand globally with scalable marketing solutions.",
   },
 ];
-const seoTitle = "Revly - Effective Media Buying for Business Growth";
+
+const seoTitle = "Revly Marketing - Effective Media Buying for Business Growth";
 const seoDescription =
   "Revly helps businesses scale with expert media buying. Optimize your advertising budget, reach the right audience, and drive measurable growth with our data-driven approach.";
 const seoUrl = "https://www.revly.se/marketing";
@@ -57,14 +58,9 @@ function Marketing() {
   return (
     <>
       <Head>
-        <title>Revly Marketing - Professional Media Buying</title>
-        <meta
-          name="description"
-          content="Revly drives business growth through expert marketing solutions. Specializing in media buying and targeted advertising, we help businesses reach and engage their audience effectively."
-        />
         <link rel="icon" href="/revly_favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-
       <NextSeo
         title={seoTitle}
         description={seoDescription}
@@ -74,9 +70,9 @@ function Marketing() {
           description: seoDescription,
           images: [
             {
-              url: "/revly_favicon.png",
-              width: 800,
-              height: 600,
+              url: "/revly_open_graph.png",
+              width: 1200,
+              height: 630,
               alt: faviconAlt,
               type: "image/png",
             },

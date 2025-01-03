@@ -41,12 +41,14 @@ const academyFeatures = [
   {
     icon: Target,
     title: "Expert Instructors",
-    description: "Learn from experienced professionals who are leaders in their fields.",
+    description:
+      "Learn from experienced professionals who are leaders in their fields.",
   },
   {
     icon: Globe,
     title: "Global Accessibility",
-    description: "Join our online courses from anywhere in the world at your convenience.",
+    description:
+      "Join our online courses from anywhere in the world at your convenience.",
   },
 ];
 
@@ -60,11 +62,9 @@ function Academy() {
   return (
     <>
       <Head>
-        <title>{seoTitle}</title>
-        <meta name="description" content={seoDescription} />
         <link rel="icon" href="/revly_favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-
       <NextSeo
         title={seoTitle}
         description={seoDescription}
@@ -74,9 +74,9 @@ function Academy() {
           description: seoDescription,
           images: [
             {
-              url: "/revly_favicon.png",
-              width: 800,
-              height: 600,
+              url: "/revly_open_graph.png",
+              width: 1200,
+              height: 630,
               alt: faviconAlt,
               type: "image/png",
             },

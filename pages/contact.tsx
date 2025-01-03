@@ -23,31 +23,32 @@ const contactFAQs = [
   },
 ];
 
+const seoTitle = "Revly - Contact Us";
+const seoDescription =
+  "Get in touch with Revly to learn more about our services and how we can help grow your business.";
+const seoUrl = "https://www.revly.se/contact";
+const faviconAlt = "Revly - Contact Us";
+
 function ContactPage() {
   return (
     <>
       <Head>
-        <title>Revly - Contact Us</title>
-        <meta
-          name="description"
-          content="Get in touch with Revly to learn more about our services and how we can help grow your business."
-        />
         <link rel="icon" href="/revly_favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <NextSeo
-        title="Revly - Contact Us"
-        description="Get in touch with Revly to learn more about our services and how we can help grow your business."
+        title={seoTitle}
+        description={seoDescription}
         openGraph={{
-          url: "https://www.revly.se/contact",
-          title: "Revly - Contact Us ",
-          description:
-            "Get in touch with Revly to learn more about our services and how we can help grow your business.",
+          url: seoUrl,
+          title: seoTitle,
+          description: seoDescription,
           images: [
             {
-              url: "/revly_favicon.png",
-              width: 800,
-              height: 600,
-              alt: "Revly Favicon",
+              url: "/revly_open_graph.png",
+              width: 1200,
+              height: 630,
+              alt: faviconAlt,
               type: "image/png",
             },
           ],

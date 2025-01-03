@@ -7,12 +7,6 @@ import { CTA } from "components/CTA";
 import { Footer } from "components/Footer";
 import { FAQSection } from "components/ui/FAQ";
 
-const seoTitle = "Revly - Simplify Review Management, Marketing & Training";
-const seoDescription =
-  "Grow smarter with Revly's solutions for review management, marketing, and training. Simplify processes and achieve success today.";
-const seoUrl = "https://www.revly.se";
-const faviconAlt = "Revly - Simplify Business Growth";
-
 const landingPageFAQs = [
   {
     question: "What services does Revly offer?",
@@ -41,16 +35,18 @@ const landingPageFAQs = [
   },
 ];
 
+const seoTitle = "Revly - Simplify Review Management, Marketing & Training";
+const seoDescription =
+  "Grow smarter with Revly's solutions for review management, marketing, and training. Simplify your business growth today.";
+const seoUrl = "https://www.revly.se";
+const faviconAlt = "Revly - Simplify Business Growth";
+
 function Home() {
   return (
     <>
       <Head>
-        <title>Revly - Simplify Review Management & Business Growth</title>
-        <meta
-          name="description"
-          content="Revly helps businesses succeed with tools for review management, marketing, and professional training."
-        />
         <link rel="icon" href="/revly_favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <NextSeo
         title={seoTitle}
@@ -61,9 +57,9 @@ function Home() {
           description: seoDescription,
           images: [
             {
-              url: "/revly_favicon.png",
-              width: 800,
-              height: 600,
+              url: "/revly_open_graph.png",
+              width: 1200,
+              height: 630,
               alt: faviconAlt,
               type: "image/png",
             },

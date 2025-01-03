@@ -3,23 +3,42 @@ import { Navigation } from "components/Navigation";
 import { Footer } from "components/Footer";
 import Button from "components/ui/Button";
 import { useRouter } from "next/router";
+import { NextSeo } from "next-seo";
+
+const router = useRouter();
+const seoTitle = "About Revly - Empowering Business Growth";
+const seoDescription =
+  "Learn more about Revly's journey, mission, and commitment to helping businesses grow.";
+const seoUrl = "https://www.revly.se/about";
+const faviconAlt = "About Revly - Empowering Business Growth";
 
 const AboutPage = () => {
-  const router = useRouter();
-
   return (
     <>
       <Head>
-        <title>About Revly - Empowering Business Growth</title>
-        <meta
-          name="description"
-          content="Learn more about Revly's journey, mission, and commitment to helping businesses grow."
-        />
         <link rel="icon" href="/revly_favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+      <NextSeo
+        title={seoTitle}
+        description={seoDescription}
+        openGraph={{
+          url: seoUrl,
+          title: seoTitle,
+          description: seoDescription,
+          images: [
+            {
+              url: "/revly_open_graph.png",
+              width: 1200,
+              height: 630,
+              alt: faviconAlt,
+              type: "image/png",
+            },
+          ],
+        }}
+      />
       <div className="min-h-screen bg-gray-50">
         <Navigation />
-        {/* Hero Section */}
         <section className="py-40 px-6 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center mb-8">
             <h1 className="text-5xl font-extrabold text-primary mb-6">
