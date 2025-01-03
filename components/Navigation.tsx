@@ -44,7 +44,7 @@ export const Navigation = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
               <a href="/about" className="nav-link">
-                Learn more
+                About us
               </a>
               <a href="/contact" className="nav-link">
                 Contact
@@ -73,6 +73,7 @@ export const Navigation = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-primary p-2"
+              aria-label="Navigation button"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
