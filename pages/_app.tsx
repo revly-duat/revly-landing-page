@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "components/ui/sonner";
 import { TooltipProvider } from "components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "../styles/globals.css"; // Add global styles if applicable
+import { Analytics } from "@vercel/analytics/react";
 
 const queryClient = new QueryClient();
 
@@ -12,6 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
+        <Analytics />
         <Sonner />
         <Component {...pageProps} />
       </TooltipProvider>

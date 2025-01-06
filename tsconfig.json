@@ -11,16 +11,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
     "target": "es2020", // Updated target for modern JavaScript
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext", // Required for Next.js
     "moduleResolution": "node", // Node resolution for imports
     "jsx": "preserve", // Recommended JSX setting for Next.js
@@ -38,12 +32,6 @@
     "incremental": true, // Enable incremental builds
     "isolatedModules": true // Enforce module boundaries
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
