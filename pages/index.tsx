@@ -69,14 +69,14 @@ function Home() {
       <div className="min-h-screen">
         <Navigation />
         <HeroSection
-          title="Accelerate Your Business Growth with Revly"
+          title="Simplify Your Business Growth with Revly"
           subtitle="Simplifying success through AI-powered insights, expert marketing, and
           professional training to help your business lead in any market."
           buttonType="secondary"
           buttonText="Learn More"
           buttonLink="#services"
           gradientClass="bg-heroGradient bg-[length:200%_200%] animate-gradient-move"
-          animatedText={true}
+          animatedText={false}
         />
         <Services />
         <CTA />

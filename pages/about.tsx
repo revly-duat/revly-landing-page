@@ -5,7 +5,6 @@ import Button from "components/ui/Button";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 
-const router = useRouter();
 const seoTitle = "About Revly - Empowering Business Growth";
 const seoDescription =
   "Learn more about Revly's journey, mission, and commitment to helping businesses grow.";
@@ -13,6 +12,8 @@ const seoUrl = "https://www.revly.se/about";
 const faviconAlt = "About Revly - Empowering Business Growth";
 
 const AboutPage = () => {
+  const router = useRouter();
+
   return (
     <>
       <Head>

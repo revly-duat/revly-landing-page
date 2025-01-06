@@ -18,17 +18,18 @@ export const Navigation = () => {
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center justify-center space-x-8">
-            <a href="/">
+            <div onClick={() => router.push("/")}>
               <img
-                className="block h-10 md:h-10 w-auto"
+                className="block h-10 md:h-10 w-auto cursor-pointer"
                 src="revly_logo_transparent.png"
-                alt="Revly logo"
+                alt="Revly Transparent Logo"
               />
-            </a>
-
-            {/* Desktop Navigation moved here */}
+            </div>
             <div className="hidden lg:flex font-bold items-center space-x-8">
-              <a href="/" className="nav-link">
+              <a
+                onClick={() => router.push("/")}
+                className="nav-link cursor-pointer"
+              >
                 Home
               </a>
               <DropdownMenu>
@@ -36,23 +37,32 @@ export const Navigation = () => {
                   Services
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <DropdownMenuItem href="/marketing">
+                  <DropdownMenuItem onClick={() => router.push("/marketing")}>
                     Marketing
                   </DropdownMenuItem>
-                  <DropdownMenuItem href="/rms">RMS</DropdownMenuItem>
-                  <DropdownMenuItem href="/academy">Academy</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push("/rms")}>
+                    RMS
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push("/academy")}>
+                    Academy
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <a href="/about" className="nav-link">
+              <a
+                onClick={() => router.push("/about")}
+                className="nav-link cursor-pointer"
+              >
                 About us
               </a>
-              <a href="/contact" className="nav-link">
+              <a
+                onClick={() => router.push("/contact")}
+                className="nav-link cursor-pointer"
+              >
                 Contact
               </a>
             </div>
           </div>
 
-          {/* Auth Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
             <Button
               label="Sign in"
@@ -68,7 +78,6 @@ export const Navigation = () => {
             ></Button>
           </div>
 
-          {/* Mobile menu button */}
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -80,31 +89,30 @@ export const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
           <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <a
-                href="/"
-                className="block px-3 py-2 text-primary hover:text-cta"
+                onClick={() => router.push("/")}
+                className="block px-3 py-2 text-primary hover:text-cta cursor-pointer"
               >
                 Home
               </a>
               <a
-                href="/#services"
-                className="block px-3 py-2 text-primary hover:text-cta"
+                onClick={() => router.push("/#services")}
+                className="block px-3 py-2 text-primary hover:text-cta cursor-pointer"
               >
                 Our Services
               </a>
               <a
-                href="/about"
-                className="block px-3 py-2 text-primary hover:text-cta"
+                onClick={() => router.push("/about")}
+                className="block px-3 py-2 text-primary hover:text-cta cursor-pointer"
               >
                 About Us
               </a>
               <a
-                href="/contact"
-                className="block px-3 py-2 text-primary hover:text-cta"
+                onClick={() => router.push("/contact")}
+                className="block px-3 py-2 text-primary hover:text-cta cursor-pointer"
               >
                 Contact Us
               </a>
@@ -114,7 +122,6 @@ export const Navigation = () => {
                 additionalClasses="sm:text-xs"
                 onClick={() => router.push("https://brand.revly.se/signup")}
               ></Button>
-
               <Button
                 label="Sign in"
                 styleType="transparent"
