@@ -102,7 +102,8 @@ function Marketing() {
             back to you shortly."
           fields={{
             company: true,
-            name: true,
+            firstName: true,
+            lastName: true,
             email: true,
             message: true,
           }}

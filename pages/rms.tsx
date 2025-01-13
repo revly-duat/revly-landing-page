@@ -140,7 +140,8 @@ const RMSPage = () => {
             back to you with more information about our upcoming RMS."
           fields={{
             company: false,
-            name: true,
+            firstName: true,
+            lastName: true,
             email: true,
             message: true,
           }}

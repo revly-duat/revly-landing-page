@@ -62,7 +62,8 @@ function ContactPage() {
               email us at info@revly.se."
           fields={{
             company: false,
-            name: true,
+            firstName: true,
+            lastName: true,
             email: true,
             message: true,
           }}

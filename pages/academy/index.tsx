@@ -7,6 +7,7 @@ import { HeroSection } from "components/Hero";
 import { BarChart, Target, Globe } from "lucide-react";
 import { FAQSection } from "components/ui/FAQ";
 import { ContactForm } from "components/ContactForm";
+import { CoursesList } from "components/CoursesList";
 
 const academyFAQs = [
   {
@@ -90,7 +91,7 @@ function Academy() {
           subtitle="Learn from industry experts and gain the skills you need to thrive in marketing, data analytics, and IT."
           buttonType="secondary"
           buttonText="Explore Courses"
-          buttonLink="#contactForm"
+          buttonLink="#coursesList"
           gradientClass="bg-academyGradient bg-[length:200%_200%] animate-gradient-move"
         />
         <FeaturesSection
@@ -98,6 +99,7 @@ function Academy() {
           heading="Why Choose Revly Academy?"
           subheading="Discover what sets our courses apart and how we can help you succeed."
         />
+        <CoursesList />
         <FAQSection title="Frequently Asked Questions" faqs={academyFAQs} />
         <ContactForm
           title="Get in Touch"
@@ -105,7 +107,8 @@ function Academy() {
             back to you with more information."
           fields={{
             company: false,
-            name: true,
+            firstName: true,
+            lastName: true,
             email: true,
             message: true,
           }}

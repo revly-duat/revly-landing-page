@@ -6,20 +6,24 @@ interface ContactFormProps {
   subtitle: string;
   fields: {
     company?: boolean;
-    name: boolean;
+    firstName: boolean;
+    lastName: boolean;
     email: boolean;
     message: boolean;
   };
+  defaultMessage?: string; // Ny prop för hårdkodat meddelande
 }
 
 export const ContactForm: React.FC<ContactFormProps> = ({
   title,
   subtitle,
   fields,
+  defaultMessage,
 }) => {
   const [formData, setFormData] = useState({
     company: "",
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     message: "",
   });
@@ -43,19 +47,35 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       process.env.NEXT_PUBLIC_EMAILJS_MARKETING_TEMPLATE_ID || "";
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
 
+    const combinedName = `${formData.firstName} ${formData.lastName}`;
+
+    // Skapa payload och hantera hårdkodat meddelande
+    const payload = {
+      company: formData.company,
+      name: combinedName,
+      email: formData.email,
+      message: fields.message ? formData.message : defaultMessage || "", // Använd hårdkodat meddelande om message är avstängt
+    };
+
     try {
       if (!serviceId || !templateId || !publicKey) {
         throw new Error("Missing required EmailJS environment variables");
       }
 
-      await emailjs.send(serviceId, templateId, formData, publicKey);
+      await emailjs.send(serviceId, templateId, payload, publicKey);
 
       setIsSubmitted(true);
-      setFormData({ company: "", name: "", email: "", message: "" });
+      setFormData({
+        company: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        message: "",
+      });
     } catch (err) {
       console.error("Failed to send message:", err);
       setError(
-        "Failed to send your message. Please try again. If you keep getting this error, please send an email directly to info@revly.se"
+        "Failed to send your message. Please try again. If the problem persists, contact us at info@revly.se."
       );
     }
   };
@@ -75,51 +95,52 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         onSubmit={handleSubmit}
         className="max-w-3xl mx-auto rounded-xl p-6"
       >
-        <div className="grid grid-cols-1 gap-6 mb-6">
-          {fields.company && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          {fields.firstName && (
             <div>
               <label
-                htmlFor="company"
-                className="block text-sm font-almaroseSemiBold text-gray-700"
+                htmlFor="firstName"
+                className="block text-md font-almaroseSemiBold text-gray-700"
               >
-                Company
+                First Name
               </label>
               <input
                 type="text"
-                id="company"
-                name="company"
-                value={formData.company}
+                id="firstName"
+                name="firstName"
+                value={formData.firstName}
                 onChange={handleChange}
                 className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-cta focus:border-cta"
-                placeholder="Company name"
+                placeholder="Your first name"
+                required
               />
             </div>
           )}
-          {fields.name && (
+          {fields.lastName && (
             <div>
               <label
-                htmlFor="name"
-                className="block text-sm font-almaroseSemiBold text-gray-700"
+                htmlFor="lastName"
+                className="block text-md font-almaroseSemiBold text-gray-700"
               >
-                Name
+                Last Name
               </label>
               <input
                 type="text"
-                id="name"
-                name="name"
-                value={formData.name}
+                id="lastName"
+                name="lastName"
+                value={formData.lastName}
                 onChange={handleChange}
                 className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-cta focus:border-cta"
-                placeholder="Your name"
+                placeholder="Your last name"
                 required
               />
             </div>
           )}
           {fields.email && (
-            <div>
+            <div className="md:col-span-2">
               <label
                 htmlFor="email"
-                className="block text-sm font-almaroseSemiBold text-gray-700"
+                className="block text-md font-almaroseSemiBold text-gray-700"
               >
                 Email
               </label>
@@ -136,11 +157,12 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             </div>
           )}
         </div>
+
         {fields.message && (
-          <div className="mb-6">
+          <div className="mb-12">
             <label
               htmlFor="message"
-              className="block text-sm font-almaroseSemiBold text-gray-700"
+              className="block text-md font-almaroseSemiBold text-gray-700"
             >
               Message
             </label>
@@ -156,23 +178,23 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             ></textarea>
           </div>
         )}
+
         <div className="flex justify-center">
           <button
             type="submit"
-            className="px-8 py-2 text-lg font-almaroseSemiBold text-white bg-cta rounded-xl shadow-md hover:bg-cta-hover hover:shadow-lg transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cta-color disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-12 py-2 text-xl font-almaroseSemiBold text-white bg-cta rounded-xl shadow-md hover:bg-cta-hover hover:shadow-lg transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cta-color"
           >
             Submit
           </button>
         </div>
+
         {isSubmitted && (
-          <div className="flex justify-center">
-            <p className="text-green-500 mt-4">
-              Thank you for getting in contact with us! We will get back to you
-              as soon as possible.
-            </p>
-          </div>
+          <p className="text-green-500 mt-4 text-center">
+            Thank you for reaching out to Revly! We will get back to you with
+            more information shortly.
+          </p>
         )}
-        {error && <p className="text-red-500 mt-4">{error}</p>}
+        {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
       </form>
     </section>
   );
