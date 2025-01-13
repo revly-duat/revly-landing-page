@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { Navigation } from "components/Navigation";
 import { Footer } from "components/Footer";
-import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import { ContactForm } from "components/ContactForm";
 import { ChevronDown } from "lucide-react";
@@ -13,8 +12,6 @@ const seoUrl = "https://www.revly.se/academy/docker";
 const faviconAlt = "Revly Academy - Advanced Docker Course";
 
 const DockerCourse = () => {
-  const router = useRouter();
-
   return (
     <>
       <Head>

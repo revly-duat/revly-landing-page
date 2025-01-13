@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { Navigation } from "components/Navigation";
 import { Footer } from "components/Footer";
-import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import { ContactForm } from "components/ContactForm";
 import { ChevronDown } from "lucide-react";
@@ -15,8 +14,6 @@ const faviconAlt =
   "Revly Academy - Scalable Cloud Services with AWS, Azure, and Google Cloud";
 
 const CloudCourse = () => {
-  const router = useRouter();
-
   return (
     <>
       <Head>
