@@ -1,5 +1,7 @@
 import Button from "components/ui/Button/index";
 import { ChevronDown } from "lucide-react";
+import { useRouter } from "next/router";
+import { scrollToSection } from "utils/smartScroll";
 
 interface HeroSectionProps {
   title: string;
@@ -27,6 +29,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   gradientClass,
   animatedText,
 }) => {
+  const router = useRouter();
+  const handleButtonClick = () => {
+    scrollToSection(router, buttonLink);
+  };
+
   return (
     <div
       className={`${gradientClass} min-h-screen flex flex-col justify-between`}
@@ -58,7 +65,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             label={buttonText}
             styleType={buttonType}
             additionalClasses="bg-cta text-white py-3 font-almaroseBold w-64 sm:w-72 text-lg sm:text-xl"
-            onClick={() => (window.location.href = buttonLink)}
+            onClick={handleButtonClick}
           ></Button>
         </div>
       </div>

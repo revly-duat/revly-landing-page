@@ -1,6 +1,13 @@
 import { Linkedin } from "lucide-react";
+import { useRouter } from "next/router";
+import { scrollToSection } from "utils/smartScroll";
 
 export const Footer = () => {
+  const router = useRouter();
+  const handleButtonClick = (link: string) => {
+    scrollToSection(router, link);
+  };
+
   return (
     <footer className="bg-gray-50 pt-16 pb-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -14,7 +21,14 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/#services" className="text-gray-600 hover:text-cta">
+                <a
+                  href="/#services"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleButtonClick("/#services");
+                  }}
+                  className="text-gray-600 hover:text-cta"
+                >
                   Our Services
                 </a>
               </li>

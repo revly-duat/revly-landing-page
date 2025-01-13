@@ -8,10 +8,14 @@ import {
 } from "components/ui/dropdown-menu";
 import Button from "components/ui/Button/index";
 import { useRouter } from "next/router";
+import { scrollToSection } from "utils/smartScroll";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  const handleButtonClick = (link: string) => {
+    scrollToSection(router, link);
+  };
 
   return (
     <nav className="fixed w-full bg-gray-50 lg:bg-transparent lg:backdrop-blur-sm z-50 py-4 font-almarose">
@@ -21,7 +25,7 @@ export const Navigation = () => {
             <div onClick={() => router.push("/")}>
               <img
                 className="block h-10 md:h-10 w-auto cursor-pointer"
-                src="revly_logo_transparent.png"
+                src="/revly_logo_transparent.png"
                 alt="Revly Transparent Logo"
               />
             </div>
@@ -99,7 +103,7 @@ export const Navigation = () => {
                 Home
               </a>
               <a
-                onClick={() => router.push("/#services")}
+                onClick={() => handleButtonClick("/#services")}
                 className="block px-3 py-2 text-primary hover:text-cta cursor-pointer"
               >
                 Our Services
