@@ -1,8 +1,6 @@
 import Head from "next/head";
 import { NextSeo } from "next-seo";
-import { Navigation } from "components/Navigation";
 import { FeaturesSection } from "components/Features";
-import { Footer } from "components/Footer";
 import { HeroSection } from "components/Hero";
 import { BarChart, Target, Globe } from "lucide-react";
 import { StatsSection } from "components/StatsSection";
@@ -80,7 +78,6 @@ function Marketing() {
         }}
       />
       <div className="min-h-screen">
-        <Navigation />
         <HeroSection
           title="Take Your Marketing to the Next Level"
           subtitle="Drive growth, optimize your campaigns, and expand your reach with Revly's expert media buying solutions."
@@ -108,8 +105,6 @@ function Marketing() {
             message: true,
           }}
         />
-
-        <Footer />
       </div>
     </>
   );

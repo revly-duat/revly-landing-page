@@ -1,6 +1,4 @@
 import Head from "next/head";
-import { Navigation } from "components/Navigation";
-import { Footer } from "components/Footer";
 import Button from "components/ui/Button";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
@@ -39,7 +37,6 @@ const AboutPage = () => {
         }}
       />
       <div className="min-h-screen bg-gray-50">
-        <Navigation />
         <section className="py-40 px-6 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center mb-8">
             <h1 className="text-5xl font-extrabold text-primary mb-6">
@@ -88,7 +85,6 @@ const AboutPage = () => {
             ></Button>
           </div>
         </section>
-        <Footer />
       </div>
     </>
   );

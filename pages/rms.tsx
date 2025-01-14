@@ -1,7 +1,4 @@
 import Head from "next/head";
-import { Navigation } from "components/Navigation";
-import { Footer } from "components/Footer";
-import { CTA } from "components/CTA";
 import { HeroSection } from "components/Hero";
 import { FeaturesSection } from "components/Features";
 import {
@@ -79,7 +76,6 @@ const RMSPage = () => {
         }}
       />
       <div className="min-h-screen">
-        <Navigation />
         <HeroSection
           title="Take Control of Your Online Reputation"
           subtitle="Manage reviews, social media accounts, and analyze performance
@@ -146,8 +142,6 @@ const RMSPage = () => {
             message: true,
           }}
         />
-        <CTA />
-        <Footer />
       </div>
     </>
   );

@@ -1,11 +1,8 @@
 import Head from "next/head";
 import { NextSeo } from "next-seo";
-import { Navigation } from "components/Navigation";
 import { HeroSection } from "components/Hero";
 import { Services } from "components/Services";
-import { Footer } from "components/Footer";
 import { FAQSection } from "components/ui/FAQ";
-import NewsletterSignup from "components/NewsletterSignup";
 
 const landingPageFAQs = [
   {
@@ -67,7 +64,6 @@ function Home() {
         }}
       />
       <div className="min-h-screen">
-        <Navigation />
         <HeroSection
           title="Simplify Your Business Growth with Revly"
           subtitle="Simplifying success through AI-powered insights, expert marketing, and
@@ -83,8 +79,6 @@ function Home() {
           title={"Frequently Asked Questions"}
           faqs={landingPageFAQs}
         />
-        <NewsletterSignup />
-        <Footer />
       </div>
     </>
   );

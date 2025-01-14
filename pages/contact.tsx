@@ -1,8 +1,6 @@
 import Head from "next/head";
 import { NextSeo } from "next-seo";
-import { Navigation } from "components/Navigation";
 import { ContactForm } from "components/ContactForm";
-import { Footer } from "components/Footer";
 import { FAQSection } from "components/ui/FAQ";
 
 const contactFAQs = [
@@ -55,7 +53,6 @@ function ContactPage() {
         }}
       />
       <div className="min-h-screen">
-        <Navigation />
         <ContactForm
           title="Get in Touch"
           subtitle="Have questions or need assistance? Fill out the form below or
@@ -69,7 +66,6 @@ function ContactPage() {
           }}
         />
         <FAQSection title="FAQ" faqs={contactFAQs} />
-        <Footer />
       </div>
     </>
   );

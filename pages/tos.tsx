@@ -1,6 +1,4 @@
 import Head from "next/head";
-import { Navigation } from "components/Navigation";
-import { Footer } from "components/Footer";
 import { NextSeo } from "next-seo";
 
 const seoTitle = "Revly - Terms of Service";
@@ -35,7 +33,6 @@ const TermsOfServicePage = () => {
         }}
       />
       <div className="min-h-screen bg-gray-50">
-        <Navigation />
         <section className="py-40 px-6 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center mb-8">
             <h1 className="text-5xl font-extrabold text-primary mb-6">
@@ -168,7 +165,6 @@ const TermsOfServicePage = () => {
             </p>
           </div>
         </section>
-        <Footer />
       </div>
     </>
   );

@@ -1,12 +1,9 @@
 import Head from "next/head";
 import { NextSeo } from "next-seo";
-import { Navigation } from "components/Navigation";
 import { FeaturesSection } from "components/Features";
-import { Footer } from "components/Footer";
 import { HeroSection } from "components/Hero";
 import { BarChart, Target, Globe } from "lucide-react";
 import { FAQSection } from "components/ui/FAQ";
-import { ContactForm } from "components/ContactForm";
 import { CoursesList } from "components/CoursesList";
 
 const academyFAQs = [
@@ -85,7 +82,6 @@ function Academy() {
         }}
       />
       <div className="min-h-screen">
-        <Navigation />
         <HeroSection
           title="Empower Your Career with Revly Academy"
           subtitle="Learn from industry experts and gain the skills you need to thrive in marketing, data analytics, and IT."
@@ -101,19 +97,6 @@ function Academy() {
         />
         <CoursesList />
         <FAQSection title="Frequently Asked Questions" faqs={academyFAQs} />
-        <ContactForm
-          title="Get in Touch"
-          subtitle="Interested in our courses? Fill out the form below, and we’ll get
-            back to you with more information."
-          fields={{
-            company: false,
-            firstName: true,
-            lastName: true,
-            email: true,
-            message: true,
-          }}
-        />
-        <Footer />
       </div>
     </>
   );
