@@ -3,35 +3,35 @@ import { NextSeo } from "next-seo";
 import { Navigation } from "components/Navigation";
 import { HeroSection } from "components/Hero";
 import { Services } from "components/Services";
-import { CTA } from "components/CTA";
 import { Footer } from "components/Footer";
 import { FAQSection } from "components/ui/FAQ";
+import NewsletterSignup from "components/NewsletterSignup";
 
 const landingPageFAQs = [
   {
     question: "What services does Revly offer?",
     answer:
-      "Revly specializes in media buying, reputation management, and professional training. Our media buying services are designed to optimize your ad spend and help you scale your campaigns effectively. Our Reputation Management System (RMS) enables businesses to monitor and improve their online presence using powerful AI insights and tools. Additionally, we offer professional training courses for both businesses and individuals, including free Higher Vocational Education (HVE) courses as well as paid programs tailored to upskill your team or enhance your personal expertise.",
+      "Revly offers comprehensive solutions to help businesses and individuals grow. Our services include advanced media buying strategies, a powerful Reputation Management System (RMS) for online presence improvement, and industry-focused courses through Revly Academy in marketing, data analytics, and IT.",
   },
   {
     question: "Is Revly's Reputation Management System available now?",
     answer:
-      "Not yet. We're actively developing our Reputation Management System and plan to launch it soon. Stay tuned for updates!",
+      "Our Reputation Management System is currently in development and will be launching soon. Sign up for our newsletter to stay updated on its release and other exciting updates!",
   },
   {
     question: "Who can benefit from Revly's services?",
     answer:
-      "Revly's services are tailored for businesses of all sizes, from startups to established companies, looking to enhance their marketing, manage their online presence, or train their teams.",
+      "Revly’s solutions are designed for both businesses aiming to scale their operations and individuals seeking to enhance their professional skills. Whether you're a startup, an established company, or a professional looking to grow, we have something for you.",
   },
   {
     question: "How can I get started with Revly?",
     answer:
-      "Getting started with Revly is easy. Simply fill out our contact form or email us at info@revly.se to start the conversation.",
+      "Getting started is simple! Contact us through our online form or send an email to info@revly.se. For courses, you can explore our Academy page and register your interest directly.",
   },
   {
     question: "Does Revly offer customized solutions?",
     answer:
-      "Absolutely! We work closely with each client to understand their unique needs and deliver personalized strategies that drive results.",
+      "Yes! We tailor our marketing strategies, reputation management solutions, and training programs to meet the specific needs of your business or personal growth goals.",
   },
 ];
 
@@ -79,11 +79,11 @@ function Home() {
           animatedText={false}
         />
         <Services />
-        <CTA />
         <FAQSection
           title={"Frequently Asked Questions"}
           faqs={landingPageFAQs}
         />
+        <NewsletterSignup />
         <Footer />
       </div>
     </>
