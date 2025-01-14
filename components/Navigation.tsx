@@ -15,10 +15,11 @@ export const Navigation = () => {
   const router = useRouter();
   const handleButtonClick = (link: string) => {
     scrollToSection(router, link);
+    setIsOpen(false);
   };
 
   return (
-    <nav className="fixed w-full bg-gray-50 lg:bg-transparent lg:backdrop-blur-sm z-50 py-4 font-almarose">
+    <nav className="fixed w-full bg-gray-50 rounded-b-2xl lg:bg-transparent lg:backdrop-blur-sm py-2 z-50 font-almarose">
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center justify-center space-x-8">
@@ -97,7 +98,7 @@ export const Navigation = () => {
           <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <a
-                onClick={() => router.push("/")}
+                onClick={() => handleButtonClick("/")}
                 className="block px-3 py-2 text-primary hover:text-cta cursor-pointer"
               >
                 Home
@@ -109,13 +110,13 @@ export const Navigation = () => {
                 Our Services
               </a>
               <a
-                onClick={() => router.push("/about")}
+                onClick={() => handleButtonClick("/about")}
                 className="block px-3 py-2 text-primary hover:text-cta cursor-pointer"
               >
                 About Us
               </a>
               <a
-                onClick={() => router.push("/contact")}
+                onClick={() => handleButtonClick("/contact")}
                 className="block px-3 py-2 text-primary hover:text-cta cursor-pointer"
               >
                 Contact Us
