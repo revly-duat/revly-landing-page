@@ -3,6 +3,58 @@ import { NextSeo } from "next-seo";
 import { HeroSection } from "components/Hero";
 import { Services } from "components/Services";
 import { FAQSection } from "components/ui/FAQ";
+import { StatsSection } from "components/StatsSection";
+import { FeaturesSection } from "components/Features";
+import {
+  MessageCircle,
+  BarChart,
+  TrendingUp,
+  Calendar,
+  Settings,
+  Trophy,
+} from "lucide-react";
+import { CoursesList } from "components/CoursesList";
+import Button from "components/ui/Button";
+import { useRouter } from "next/router";
+
+const rmsFeatures = [
+  {
+    icon: MessageCircle,
+    title: "Review Management",
+    description:
+      "Centralize and manage reviews from multiple platforms like Google Reviews, Trustpilot, and more. Respond directly and maintain your reputation effortlessly.",
+  },
+  {
+    icon: BarChart,
+    title: "Social Media Insights",
+    description:
+      "Monitor and analyze social media engagement. Manage comments, likes, and trends while using AI-generated insights to optimize your strategy.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Analytics & Reporting",
+    description:
+      "Generate custom reports with powerful analytics. Track trends across reviews, social media, and customer engagement to make informed decisions.",
+  },
+  {
+    icon: Calendar,
+    title: "Content Manager",
+    description:
+      "Schedule posts for Instagram, Twitter, Facebook, and more. Streamline your content planning and ensure consistent online presence.",
+  },
+  {
+    icon: Settings,
+    title: "AI Feedback & Ratings",
+    description:
+      "Receive actionable AI-driven feedback based on reviews and social media trends. Understand customer sentiment and improve your strategies.",
+  },
+  {
+    icon: Trophy,
+    title: "Competitive Benchmarking",
+    description:
+      "Visualize your ranking among competitors. Gain insights into how your business compares with others and see if you're in the top 1% based on customer ratings.",
+  },
+];
 
 const landingPageFAQs = [
   {
@@ -39,6 +91,8 @@ const seoUrl = "https://www.revly.se";
 const faviconAlt = "Revly - Simplify Business Growth";
 
 function Home() {
+  const router = useRouter();
+
   return (
     <>
       <Head>
@@ -75,6 +129,27 @@ function Home() {
           animatedText={false}
         />
         <Services />
+        <StatsSection />
+        <div className="w-full flex justify-center bg-gray-50 pb-32">
+          <Button
+            label={"Read More"}
+            styleType={"primary"}
+            onClick={() => router.push("/marketing")}
+          ></Button>
+        </div>
+        <FeaturesSection
+          features={rmsFeatures}
+          heading="RMS Features"
+          subheading="Discover the tools you need to simplify reputation management and drive online success."
+        />
+        <div className="w-full flex justify-center bg-white pb-32">
+          <Button
+            label={"Read More"}
+            styleType={"primary"}
+            onClick={() => router.push("/rms")}
+          ></Button>
+        </div>
+        <CoursesList />
         <FAQSection
           title={"Frequently Asked Questions"}
           faqs={landingPageFAQs}

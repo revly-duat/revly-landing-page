@@ -25,7 +25,7 @@ const stats = [
 
 export const StatsSection = () => {
   return (
-    <section className="py-32 px-6 sm:px-6 lg:px-8 bg-white text-primary">
+    <section className="pt-32 pb-12 px-6 sm:px-6 lg:px-8 bg-gray-50 text-primary">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -40,7 +40,7 @@ export const StatsSection = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center p-6 bg-gray-50 rounded-xl shadow-lg"
+              className="flex flex-col items-center text-center p-6"
             >
               <stat.icon className="w-12 h-12 text-cta mb-4" />
               <h3 className="text-2xl font-bold mb-2">{stat.value}</h3>

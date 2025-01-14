@@ -18,7 +18,7 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({
   subheading,
 }) => {
   return (
-    <section className="py-32 px-6 sm:px-6 lg:px-8 bg-gray-50">
+    <section className="pt-32 pb-12 px-6 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
@@ -26,11 +26,18 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">{subheading}</p>
         </div>
+
+        {/* Grid for Features */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="feature-card">
+            <div
+              key={index}
+              className="feature-card flex flex-col items-center text-center p-6 bg-white h-full min-h-[280px]"
+            >
               <feature.icon className="w-12 h-12 text-cta mb-4" />
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+              <h3 className="text-xl font-semibold mb-4 min-h-[60px] flex items-center justify-center">
+                {feature.title}
+              </h3>
               <p className="text-gray-600">{feature.description}</p>
             </div>
           ))}

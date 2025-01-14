@@ -11,7 +11,7 @@ export const CoursesList = () => {
   };
 
   return (
-    <section className="py-32 px-6 sm:px-12 lg:px-24 bg-gray-100">
+    <section className="py-32 px-6 sm:px-12 lg:px-24 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-20 text-primary">
           Explore Our Courses
@@ -22,7 +22,6 @@ export const CoursesList = () => {
               key={index}
               className="relative bg-white shadow-md rounded-2xl overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-lg flex flex-col"
             >
-              {/* Kursbild - Justerad för att visa hela logotypen */}
               <div className="flex justify-center items-center h-48 p-4">
                 <img
                   src={course.image}
@@ -39,7 +38,6 @@ export const CoursesList = () => {
                   {course.description}
                 </p>
 
-                {/* Kursdetaljer */}
                 <div className="flex items-center text-sm text-gray-500 mb-2">
                   <CalendarDays className="h-4 w-4 mr-2 text-cta" />
                   <strong>Start Date:</strong>&nbsp; {course.startDate}
@@ -49,7 +47,6 @@ export const CoursesList = () => {
                   <strong>Duration:</strong>&nbsp; {course.duration}
                 </div>
 
-                {/* Knapp längst ner */}
                 <div className="mt-auto">
                   <Button
                     label="Learn More"

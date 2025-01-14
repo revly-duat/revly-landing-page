@@ -50,7 +50,7 @@ export const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="flex flex-col justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+              className="flex flex-col justify-between items-center p-6 bg-white"
             >
               <div className="flex flex-col items-center">
                 <service.icon className="h-12 w-12 text-cta mb-4" />
