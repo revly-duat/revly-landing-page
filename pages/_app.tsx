@@ -6,14 +6,17 @@ import Script from "next/script";
 import { Footer } from "components/Footer";
 import NewsletterSignup from "components/NewsletterSignup";
 import { Navigation } from "components/Navigation";
+import { useRouter } from "next/router";
 
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const is404Page = router.pathname === "/404";
+
   return (
     <QueryClientProvider client={queryClient}>
       {/* Vercel Analytics */}
-
       <Analytics />
 
       {/* Google Analytics */}
@@ -40,10 +43,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=TBEeQc"
       />
 
-      <Navigation />
+      {!is404Page && <Navigation />}
       <Component {...pageProps} />
-      <NewsletterSignup />
-      <Footer />
+      {!is404Page && <NewsletterSignup />}
+      {!is404Page && <Footer />}
     </QueryClientProvider>
   );
 }
