@@ -29,7 +29,7 @@ export const StatsSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Proven Results
+            Marketing Stats
           </h2>
           <p className="max-w-2xl mx-auto text-lg">
             Discover how Revly's marketing expertise drives measurable growth
