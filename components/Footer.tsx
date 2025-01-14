@@ -1,4 +1,4 @@
-import { Linkedin } from "lucide-react";
+import { Facebook, Linkedin } from "lucide-react";
 import { useRouter } from "next/router";
 import { scrollToSection } from "utils/smartScroll";
 
@@ -91,6 +91,13 @@ export const Footer = () => {
                 aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
+              </a>
+              <a
+                href="https://www.facebook.com/revlyab/"
+                className="text-gray-600 hover:text-cta"
+                aria-label="Facebook"
+              >
+                <Facebook size={20} />
               </a>
             </div>
           </div>
