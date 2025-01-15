@@ -12,7 +12,7 @@ const contactFAQs = [
   {
     question: "What services does Revly offer?",
     answer:
-      "Revly specializes in media buying, reputation management, and professional training. Our media buying services are designed to optimize your ad spend and help you scale your campaigns effectively. Our Reputation Management System (RMS) enables businesses to monitor and improve their online presence using powerful AI insights and tools. Additionally, we offer professional training courses for both businesses and individuals, including free Higher Vocational Education (HVE) courses as well as paid programs tailored to upskill your team or enhance your personal expertise.",
+      "Revly specializes in media buying, review management, and professional training. Our media buying services are designed to optimize your ad spend and help you scale your campaigns effectively. Our Review Management System (RMS) enables businesses to monitor and improve their online presence using powerful AI insights and tools. Additionally, we offer professional training courses for both businesses and individuals, including free Higher Vocational Education (HVE) courses as well as paid programs tailored to upskill your team or enhance your personal expertise.",
   },
   {
     question: "How can I get started?",

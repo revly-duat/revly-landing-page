@@ -50,8 +50,8 @@ const TermsOfServicePage = () => {
             <p className="text-lg leading-relaxed">
               Currently, Revly offers media buying and marketing services
               designed to help businesses grow. Additional services, such as our
-              Reputation Management System (RMS) and courses, will be launched
-              in the future:
+              Review Management System (RMS) and courses, will be launched in
+              the future:
             </p>
             <ul className="list-disc list-inside space-y-2">
               <li>

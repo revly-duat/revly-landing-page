@@ -60,7 +60,7 @@ const AboutPage = () => {
             <p className="text-lg leading-relaxed">
               What makes Revly unique is our comprehensive approach to business
               growth. We don’t just focus on one aspect of your business; we
-              provide a full suite of solutions. From our Reputation Management
+              provide a full suite of solutions. From our Review Management
               System (RMS) to the training programs and our media buying
               services, Revly offers a complete package. Whether it’s
               strengthening your online reputation, expanding your market reach,

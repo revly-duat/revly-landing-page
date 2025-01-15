@@ -13,7 +13,7 @@ const services = [
   },
   {
     icon: Star,
-    title: "Reputation Management System",
+    title: "Review Management System",
     description:
       "Manage reviews and strengthen your brand's reputation with actionable AI-driven insights.",
     id: "rms",

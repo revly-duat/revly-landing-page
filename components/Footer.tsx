@@ -54,7 +54,7 @@ export const Footer = () => {
               </li>
               <li>
                 <a href="/rms" className="text-gray-600 hover:text-cta">
-                  Reputation Management
+                  Review Management System
                 </a>
               </li>
               <li>

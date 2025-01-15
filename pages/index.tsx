@@ -60,12 +60,12 @@ const landingPageFAQs = [
   {
     question: "What services does Revly offer?",
     answer:
-      "Revly offers comprehensive solutions to help businesses and individuals grow. Our services include advanced media buying strategies, a powerful Reputation Management System (RMS) for online presence improvement, and industry-focused courses through Revly Academy in marketing, data analytics, and IT.",
+      "Revly offers comprehensive solutions to help businesses and individuals grow. Our services include advanced media buying strategies, a powerful Review Management System (RMS) for online presence improvement, and industry-focused courses through Revly Academy in marketing, data analytics, and IT.",
   },
   {
-    question: "Is Revly's Reputation Management System available now?",
+    question: "Is Revly's Review Management System available now?",
     answer:
-      "Our Reputation Management System is currently in development and will be launching soon. Sign up for our newsletter to stay updated on its release and other exciting updates!",
+      "Our Review Management System is currently in development and will be launching soon. Sign up for our newsletter to stay updated on its release and other exciting updates!",
   },
   {
     question: "Who can benefit from Revly's services?",
@@ -80,7 +80,7 @@ const landingPageFAQs = [
   {
     question: "Does Revly offer customized solutions?",
     answer:
-      "Yes! We tailor our marketing strategies, reputation management solutions, and training programs to meet the specific needs of your business or personal growth goals.",
+      "Yes! We tailor our marketing strategies, review management solutions, and training programs to meet the specific needs of your business or personal growth goals.",
   },
 ];
 
@@ -132,19 +132,19 @@ function Home() {
         <StatsSection />
         <div className="w-full flex justify-center bg-gray-50 pb-32">
           <Button
-            label={"Read More"}
+            label={"Learn More"}
             styleType={"primary"}
             onClick={() => router.push("/marketing")}
           ></Button>
         </div>
         <FeaturesSection
           features={rmsFeatures}
-          heading="RMS Features"
-          subheading="Discover the tools you need to simplify reputation management and drive online success."
+          heading="Review Management System"
+          subheading="Discover the tools you need to simplify review management and drive online success."
         />
         <div className="w-full flex justify-center bg-white pb-32">
           <Button
-            label={"Read More"}
+            label={"Learn More"}
             styleType={"primary"}
             onClick={() => router.push("/rms")}
           ></Button>
