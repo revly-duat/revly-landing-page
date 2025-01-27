@@ -18,7 +18,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       {/* Vercel Analytics */}
       <Analytics />
-
+      <Script
+        id="Cookiebot"
+        src="https://consent.cookiebot.com/uc.js"
+        data-cbid="03f48e9e-73b9-4efe-9398-2c8dfee82899"
+        type="text/javascript"
+        async
+      ></Script>
       {/* Google Analytics */}
       <Script
         strategy="afterInteractive"
