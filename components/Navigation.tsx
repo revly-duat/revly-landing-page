@@ -1,11 +1,5 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "components/ui/dropdown-menu";
 import Button from "components/ui/Button/index";
 import { useRouter } from "next/router";
 import { scrollToSection } from "utils/smartScroll";
@@ -32,53 +26,43 @@ export const Navigation = () => {
             </div>
             <div className="hidden lg:flex font-bold items-center space-x-8">
               <a
-                onClick={() => router.push("/")}
+                onClick={() => router.push("/marketing")}
                 className="nav-link cursor-pointer"
               >
-                Home
+                Marknadsföring
               </a>
-              <DropdownMenu>
-                <DropdownMenuTrigger className="nav-link">
-                  Services
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem onClick={() => router.push("/marketing")}>
-                    Marketing
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push("/rms")}>
-                    RMS
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push("/academy")}>
-                    Academy
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <a
+                onClick={() => router.push("/rms")}
+                className="nav-link cursor-pointer"
+              >
+                RMS
+              </a>
               <a
                 onClick={() => router.push("/about")}
                 className="nav-link cursor-pointer"
               >
-                About us
+                Om oss
               </a>
               <a
                 onClick={() => router.push("/contact")}
                 className="nav-link cursor-pointer"
               >
-                Contact
+                Kontakta oss
               </a>
             </div>
           </div>
 
           <div className="hidden lg:flex items-center space-x-4">
             <Button
-              label="Sign in"
+              label="Logga in"
               styleType="transparent"
-              additionalClasses="font-almaroseSemiBold px-8"
+              additionalClasses="font-almaroseSemiBold px-4"
               onClick={() => router.push("https://brand.revly.se")}
             ></Button>
             <Button
-              label="Sign up"
+              label="Testa gratis"
               styleType="secondary"
-              additionalClasses="text-base font-almaroseSemiBold px-8"
+              additionalClasses="text-base font-almaroseSemiBold px-4"
               onClick={() => router.push("https://brand.revly.se/signup")}
             ></Button>
           </div>
@@ -104,10 +88,16 @@ export const Navigation = () => {
                 Home
               </a>
               <a
-                onClick={() => handleButtonClick("/#services")}
+                onClick={() => handleButtonClick("/marketing")}
                 className="block px-3 py-2 text-primary hover:text-cta cursor-pointer"
               >
-                Our Services
+                Marketing
+              </a>
+              <a
+                onClick={() => handleButtonClick("/rms")}
+                className="block px-3 py-2 text-primary hover:text-cta cursor-pointer"
+              >
+                RMS
               </a>
               <a
                 onClick={() => handleButtonClick("/about")}

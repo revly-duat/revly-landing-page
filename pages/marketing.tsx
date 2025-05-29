@@ -9,48 +9,48 @@ import { FAQSection } from "components/ui/FAQ";
 
 const marketingFAQs = [
   {
-    question: "What platforms do you advertise on?",
+    question: "Vilka plattformar annonserar ni på?",
     answer:
-      "We primarily work with Meta (Facebook and Instagram), but we are able to work with Google, TikTok, and other platforms.",
+      "Vi arbetar främst med Meta (Facebook och Instagram), men kan även annonsera på Google, TikTok och andra plattformar beroende på vad som passar ditt företag bäst.",
   },
   {
-    question: "How much do your services cost?",
+    question: "Vad kostar era tjänster?",
     answer:
-      "We don't have fixed pricing. Instead, we tailor our pricing to what works best for each customer. The cost is based on the amount of workload from Revly and the budget of the customer. Our goal is to create a pricing structure that ensures both value and success for your business.",
+      "Vi har inga fasta paketpriser. Istället anpassar vi priset efter varje kunds behov, budget och arbetsmängd. Målet är att skapa en prismodell som ger både värde och resultat.",
   },
   {
-    question: "Do you provide reporting?",
+    question: "Får vi rapporter?",
     answer:
-      "Yes, we provide weekly detailed reporting and analytics to help you understand the performance of your campaigns.",
+      "Ja. Vi skickar veckovisa rapporter med tydlig statistik och analys så att ni har full koll på hur annonseringen går.",
   },
 ];
 
 const marketingPageFeatures = [
   {
     icon: BarChart,
-    title: "Data-Driven Campaigns",
+    title: "Datadrivna kampanjer",
     description:
-      "Leverage analytics to optimize ad spend and maximize return on investment.",
+      "Optimera annonsbudgeten med hjälp av insikter och analys. Fokus på ROAS och tydliga resultat.",
   },
   {
     icon: Target,
-    title: "Precise Audience Targeting",
+    title: "Precision i målgrupp",
     description:
-      "Reach your ideal customers with tailored strategies that drive engagement and sales.",
+      "Vi hittar rätt kunder med smart segmentering och kreativa strategier som engagerar och konverterar.",
   },
   {
     icon: Globe,
-    title: "Scalable Campaigns",
+    title: "Skalbara lösningar",
     description:
-      "Expand your reach and grow your brand globally with scalable marketing solutions.",
+      "Redo att växa? Våra strategier kan enkelt skalas upp både nationellt och internationellt.",
   },
 ];
 
-const seoTitle = "Revly Marketing - Effective Media Buying for Business Growth";
+const seoTitle = "Revly - Resultatinriktad annonsering för e-handel";
 const seoDescription =
-  "Revly helps businesses scale with expert media buying. Optimize your advertising budget, reach the right audience, and drive measurable growth with our data-driven approach.";
+  "Revly hjälper e-handelsföretag växa med datadriven annonsering. Få ut mer av din marknadsbudget och nå rätt målgrupp med bevisad strategi.";
 const seoUrl = "https://www.revly.se/marketing";
-const faviconAlt = "Revly - Media Buying Solutions for Business Growth";
+const faviconAlt = "Revly - Marknadsföring för tillväxt";
 
 function Marketing() {
   return (
@@ -79,24 +79,23 @@ function Marketing() {
       />
       <div className="min-h-screen">
         <HeroSection
-          title="Take Your Marketing to the Next Level"
-          subtitle="Drive growth, optimize your campaigns, and expand your reach with Revly's expert media buying solutions."
+          title="Ta er marknadsföring till nästa nivå"
+          subtitle="Väx snabbare, nå rätt målgrupp och få kontroll på resultaten med smart annonsering."
           buttonType="secondary"
-          buttonText="Let's Grow Together"
+          buttonText="Kom igång"
           buttonLink="#contactForm"
-          gradientClass="bg-marketingGradient bg-[length:200%_200%] animate-gradient-move"
+          gradientClass="bg-rmsGradient bg-[length:200%_200%] animate-gradient-move"
         />
         <FeaturesSection
           features={marketingPageFeatures}
-          heading="Marketing Features"
-          subheading="Explore how Revly's marketing services can help your business grow and succeed."
+          heading="Vad gör vi?"
+          subheading="Upptäck hur Revlys tjänster inom marknadsföring hjälper e-handelsföretag växa med lönsamhet."
         />
         <StatsSection />
-        <FAQSection title="FAQ" faqs={marketingFAQs} />
+        <FAQSection title="Vanliga frågor" faqs={marketingFAQs} />
         <ContactForm
-          title="Get in Touch"
-          subtitle="Ready to grow your business? Fill out the form below, and we’ll get
-            back to you shortly."
+          title="Kontakta oss"
+          subtitle="Redo att växa? Fyll i formuläret nedan så hör vi av oss inom kort."
           fields={{
             company: true,
             firstName: true,

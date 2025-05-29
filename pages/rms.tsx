@@ -14,41 +14,41 @@ import { NextSeo } from "next-seo";
 const rmsFeatures = [
   {
     icon: MessageCircle,
-    title: "Review Management",
+    title: "Recensionshantering",
     description:
-      "Centralize and manage reviews from multiple platforms like Google Reviews, Trustpilot, and more. Respond directly and maintain your reputation effortlessly.",
+      "Samla och hantera recensioner från plattformar som Google Reviews, Trustpilot och fler. Svara direkt med AI och stärk ert rykte utan krångel.",
   },
   {
     icon: BarChart,
-    title: "Social Media Insights",
+    title: "Sociala medier-insikter",
     description:
-      "Monitor and analyze social media engagement. Manage comments, likes, and trends while using AI-generated insights to optimize your strategy.",
+      "Följ och analysera engagemang i sociala medier. Hantera kommentarer och trender med hjälp av AI-insikter för bättre strategi.",
   },
   {
     icon: TrendingUp,
-    title: "Analytics & Reporting",
+    title: "Analys & rapportering",
     description:
-      "Generate custom reports with powerful analytics. Track trends across reviews, social media, and customer engagement to make informed decisions.",
+      "Skapa skräddarsydda rapporter med kraftfull analys. Följ trender i recensioner, sociala medier och kundbeteende.",
   },
   {
     icon: Calendar,
-    title: "Content Manager",
+    title: "Innehållsplanering",
     description:
-      "Schedule posts for Instagram, Twitter, Facebook, and more. Streamline your content planning and ensure consistent online presence.",
+      "Schemalägg inlägg för Instagram, Facebook, X och fler plattformar. Få ordning och flyt i ert innehållsarbete.",
   },
   {
     icon: Settings,
-    title: "AI Feedback & Ratings",
+    title: "AI-feedback & betyg",
     description:
-      "Receive actionable AI-driven feedback based on reviews and social media trends. Understand customer sentiment and improve your strategies.",
+      "Få smarta rekommendationer baserat på AI-analys av recensioner och sociala trender. Förstå vad kunderna verkligen tycker.",
   },
 ];
 
-const seoTitle = "Revly RMS - Manage Your Online Reputation";
+const seoTitle = "Revly RMS - Omdömeshantering med AI";
 const seoDescription =
-  "Manage reviews, social media, analytics, and content efficiently with Revly's RMS. Streamline your online presence and scale your business.";
+  "Hantera recensioner, sociala medier och analys. Revlys RMS är ett verktyg för e-handlare som vill jobba smartare. Under utveckling.";
 const seoUrl = "https://www.revly.se/rms";
-const faviconAlt = "Revly RMS - Manage Your Online Reputation";
+const faviconAlt = "Revly RMS - Omdömeshantering med AI";
 
 const RMSPage = () => {
   return (
@@ -77,44 +77,43 @@ const RMSPage = () => {
       />
       <div className="min-h-screen">
         <HeroSection
-          title="Take Control of Your Online Reputation"
-          subtitle="Manage reviews, social media accounts, and analyze performance
-            with Revly's comprehensive RMS."
+          title="Smartare omdömeshantering med AI"
+          subtitle="Samla recensioner, planera innehåll och analysera kundfeedback allt i ett verktyg, byggt för växande företag."
           buttonType="secondary"
-          buttonText="Get Started Now"
+          buttonText="Anmäl intresse"
           buttonLink="https://brand.revly.se/signup"
           gradientClass="bg-rmsGradient bg-[length:200%_200%] animate-gradient-move"
         />
         <FeaturesSection
           features={rmsFeatures}
-          heading="RMS Features"
-          subheading="Discover the tools you need to simplify review management and drive online success."
+          heading="Vad innehåller RMS?"
+          subheading="Ett verktyg byggt för företag som vill arbeta smartare och mer datadrivet."
         />
         <section className="py-16 px-6 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6">
-              AI-Powered Insights
+              AI-baserade insikter
             </h2>
             <p className="text-gray-600 text-lg mb-8">
-              Let AI guide your business decisions with smart, actionable
-              feedback based on your data.
+              Låt AI guida dina beslut med smart feedback baserad på verklig
+              data.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  title: "Rating Trends",
+                  title: "Betygstrender",
                   description:
-                    "Track your ratings' trends on platforms like Google Reviews, Trustpilot, and more.",
+                    "Följ hur era betyg utvecklas över tid på plattformar som Google Reviews och Trustpilot.",
                 },
                 {
-                  title: "Sentiment Analysis",
+                  title: "Kundsentiment",
                   description:
-                    "Understand customer sentiment through AI-powered comment analysis.",
+                    "Förstå vad era kunder tycker med hjälp av AI-baserad analys av kommentarer och recensioner.",
                 },
                 {
-                  title: "Engagement Predictions",
+                  title: "Engagemangsförutsägelser",
                   description:
-                    "Optimize your social media strategy with predicted engagement trends.",
+                    "Optimera innehållsstrategin med hjälp av förutsägelser om framtida engagemang.",
                 },
               ].map((insight, index) => (
                 <div
@@ -131,9 +130,8 @@ const RMSPage = () => {
           </div>
         </section>
         <ContactForm
-          title="Lets us know you're interested"
-          subtitle="Fill out the form below, and we’ll get
-            back to you with more information about our upcoming RMS."
+          title="Anmäl intresse"
+          subtitle="Vill du testa RMS eller påverka utvecklingen? Fyll i formuläret nedan. Vi uppskattar all feedback och potentiella samarbeten."
           fields={{
             company: false,
             firstName: true,

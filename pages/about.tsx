@@ -3,11 +3,11 @@ import Button from "components/ui/Button";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 
-const seoTitle = "About Revly - Empowering Business Growth";
+const seoTitle = "Om Revly - Marknadsföring som driver tillväxt";
 const seoDescription =
-  "Learn more about Revly's journey, mission, and commitment to helping businesses grow.";
+  "Läs mer om Revlys resa, vision och hur vi hjälper e-handelsföretag att växa på riktigt.";
 const seoUrl = "https://www.revly.se/about";
-const faviconAlt = "About Revly - Empowering Business Growth";
+const faviconAlt = "Om Revly - Marknadsföring som driver tillväxt";
 
 const AboutPage = () => {
   const router = useRouter();
@@ -40,45 +40,40 @@ const AboutPage = () => {
         <section className="py-40 px-6 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center mb-8">
             <h1 className="text-5xl font-extrabold text-primary mb-6">
-              About Revly
+              Om Revly
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-              Revly was created with a vision to empower businesses to scale
-              effectively and achieve sustainable growth.
+              Revly grundades med målet att hjälpa företag växa hållbart och
+              effektivt med rätt strategi och rätt partner.
             </p>
           </div>
           <div className="max-w-4xl mx-auto text-gray-600 space-y-8">
             <p className="text-lg leading-relaxed">
-              Revly was born out of a passion for building long-lasting
-              partnerships and creating meaningful growth for businesses. At its
-              core, Revly believes in the power of collaboration and mutual
-              success. When you grow, we grow—and that symbiosis is what drives
-              everything we do. Seeing measurable results and working
-              hand-in-hand with clients to achieve their goals is what makes
-              this journey exciting.
+              Revly föddes ur en vilja att bygga långsiktiga samarbeten och
+              skapa konkret tillväxt för företag. I grunden tror vi på samarbete
+              och ömsesidig framgång. När ni växer, växer vi. Det är den
+              drivkraften som genomsyrar allt vi gör. Att arbeta nära kunder,
+              sätta tydliga mål och se faktiska resultat är det som gör jobbet
+              meningsfullt.
             </p>
             <p className="text-lg leading-relaxed">
-              What makes Revly unique is our comprehensive approach to business
-              growth. We don’t just focus on one aspect of your business; we
-              provide a full suite of solutions. From our Review Management
-              System (RMS) to the training programs and our media buying
-              services, Revly offers a complete package. Whether it’s
-              strengthening your online reputation, expanding your market reach,
-              or scaling your business, we have the tools and expertise to help
-              you succeed.
+              Det som gör Revly unikt är vårt helhetsgrepp. Vi fokuserar inte
+              bara på en del av marknadsföringen utan vi jobbar med allt som kan
+              påverka tillväxten. Från betald annonsering till innehållsstrategi
+              och system för recensionshantering (RMS). Oavsett om du vill bygga
+              varumärke, skala upp försäljningen eller förbättra kundrelationer
+              vi har verktygen och erfarenheten.
             </p>
             <p className="text-lg leading-relaxed">
-              At Revly, we’re all about creating real value for our clients. Our
-              mission is to help businesses build a stronger online presence and
-              grow sustainably. With our tailored solutions, you can expect to
-              see your brand flourish, backed by a reliable partner who’s with
-              you every step of the way. Together, we’ll build something
-              impactful, durable, and ready for the future.
+              Vårt uppdrag är enkelt: hjälpa e-handelsföretag att bli starkare
+              digitalt och växa med lönsamhet. Med skräddarsydda lösningar och
+              nära samarbete bygger vi något som håller och som gör skillnad, på
+              riktigt.
             </p>
           </div>
           <div className="mt-12 text-center">
             <Button
-              label="Explore Our Services"
+              label="Utforska våra tjänster"
               styleType="primary"
               additionalClasses="px-8"
               onClick={() => router.push("/#services")}

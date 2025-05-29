@@ -8,7 +8,7 @@ export const NewsletterSignup = () => {
 
   const handleSubmit = async () => {
     if (!email) {
-      setMessage("Please enter a valid email address.");
+      setMessage("Ange en gilitg e-postadress.");
       return;
     }
 
@@ -54,15 +54,15 @@ export const NewsletterSignup = () => {
       );
 
       if (response.ok) {
-        setMessage("Thank you for subscribing!");
+        setMessage("Tack för ditt intresse!");
         setEmail("");
       } else {
         const data = await response.json();
-        setMessage(data.message || "Something went wrong. Please try again.");
+        setMessage(data.message || "Något gick fel. Försök igen.");
       }
     } catch (error) {
       console.error("Subscription error:", error);
-      setMessage("An error occurred. Please try again later.");
+      setMessage("Ett fel har uppstått. Försök igen senare.");
     } finally {
       setIsSubmitting(false);
     }
@@ -72,24 +72,24 @@ export const NewsletterSignup = () => {
     <section className="py-32 px-4 sm:px-6 lg:px-8 bg-primary text-white">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-          Stay Up To Date with Revly
+          Håll dig uppdaterad med Revly
         </h2>
         <p className="text-lg sm:text-xl mb-12 opacity-90">
-          Subscribe to our newsletter for the latest updates on our products,
-          features, and courses.
+          Prenumerera på vårt nyhetsbrev för de senaste uppdateringarna om
+          tjänster, verktyg och insikter kring marknadsföring.
         </p>
 
         <div className="flex flex-col justify-center items-center space-y-6 max-w-xl mx-auto">
           <input
             type="email"
-            placeholder="Enter your email"
+            placeholder="Din e-postadress"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
             className="w-full px-6 py-3 rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-cta sm:flex-1"
           />
           <Button
-            label={isSubmitting ? "Subscribing..." : "Subscribe"}
+            label={isSubmitting ? "Prenumererar..." : "Prenumerera"}
             styleType="primary"
             additionalClasses="font-almaroseBold text-md px-8 py-3"
             disabled={isSubmitting}
@@ -97,9 +97,7 @@ export const NewsletterSignup = () => {
           />
         </div>
 
-        {message && (
-          <p className="mt-6 text-md font-almaroseSemiBold">{message}</p>
-        )}
+        {message && <p className="text-red-400 mt-4 text-center">{message}</p>}
       </div>
     </section>
   );

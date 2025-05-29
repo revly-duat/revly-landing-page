@@ -102,7 +102,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 htmlFor="firstName"
                 className="block text-md font-almaroseSemiBold text-gray-700"
               >
-                First Name
+                Förnamn
               </label>
               <input
                 type="text"
@@ -111,7 +111,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 value={formData.firstName}
                 onChange={handleChange}
                 className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-cta focus:border-cta"
-                placeholder="Your first name"
+                placeholder="Ditt förnamn"
                 required
               />
             </div>
@@ -122,7 +122,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 htmlFor="lastName"
                 className="block text-md font-almaroseSemiBold text-gray-700"
               >
-                Last Name
+                Efternamn
               </label>
               <input
                 type="text"
@@ -131,7 +131,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 value={formData.lastName}
                 onChange={handleChange}
                 className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-cta focus:border-cta"
-                placeholder="Your last name"
+                placeholder="Ditt efternamn"
                 required
               />
             </div>
@@ -142,7 +142,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 htmlFor="email"
                 className="block text-md font-almaroseSemiBold text-gray-700"
               >
-                Email
+                E-postadress
               </label>
               <input
                 type="email"
@@ -151,7 +151,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 value={formData.email}
                 onChange={handleChange}
                 className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-cta focus:border-cta"
-                placeholder="Your email"
+                placeholder="Din e-postadress"
                 required
               />
             </div>
@@ -164,7 +164,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               htmlFor="message"
               className="block text-md font-almaroseSemiBold text-gray-700"
             >
-              Message
+              Meddelande
             </label>
             <textarea
               id="message"
@@ -173,7 +173,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               onChange={handleChange}
               rows={5}
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-cta focus:border-cta"
-              placeholder="How can we help you?"
+              placeholder="Hur kan vi hjälpa dig?"
               required
             ></textarea>
           </div>
@@ -184,17 +184,17 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             type="submit"
             className="px-12 py-2 text-xl font-almaroseSemiBold text-white bg-cta rounded-xl shadow-md hover:bg-cta-hover hover:shadow-lg transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cta-color"
           >
-            Submit
+            Skicka
           </button>
         </div>
 
         {isSubmitted && (
           <p className="text-green-500 mt-4 text-center">
-            Thank you for reaching out to Revly! We will get back to you with
-            more information shortly.
+            Tack för att du har av dig till Revly! Vi återkommer så snart vi
+            kan.
           </p>
         )}
-        {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
+        {error && <p className="text-red-400 mt-4 text-center">{error}</p>}
       </form>
     </section>
   );

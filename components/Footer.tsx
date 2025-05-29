@@ -13,11 +13,11 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">Länkar</h3>
             <ul className="space-y-2">
               <li>
                 <a href="/" className="text-gray-600 hover:text-cta">
-                  Home
+                  Hem
                 </a>
               </li>
               <li>
@@ -29,27 +29,27 @@ export const Footer = () => {
                   }}
                   className="text-gray-600 hover:text-cta"
                 >
-                  Our Services
+                  Våra tjänster
                 </a>
               </li>
               <li>
                 <a href="/about" className="text-gray-600 hover:text-cta">
-                  About Us
+                  Om oss
                 </a>
               </li>
               <li>
                 <a href="/contact" className="text-gray-600 hover:text-cta">
-                  Contact Us
+                  Kontakta oss
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Services</h3>
+            <h3 className="text-lg font-semibold mb-4">Tjänster</h3>
             <ul className="space-y-2">
               <li>
                 <a href="/marketing" className="text-gray-600 hover:text-cta">
-                  Marketing
+                  Marknadsföring
                 </a>
               </li>
               <li>
@@ -57,30 +57,25 @@ export const Footer = () => {
                   Review Management System
                 </a>
               </li>
-              <li>
-                <a href="/academy" className="text-gray-600 hover:text-cta">
-                  Revly Academy
-                </a>
-              </li>
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Legal</h3>
+            <h3 className="text-lg font-semibold mb-4">Övrigt</h3>
             <ul className="space-y-2">
               <li>
                 <a href="/privacy" className="text-gray-600 hover:text-cta">
-                  Privacy Policy
+                  Integritetspolicy
                 </a>
               </li>
               <li>
                 <a href="/tos" className="text-gray-600 hover:text-cta">
-                  Terms of Service
+                  Villkor
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
+            <h3 className="text-lg font-semibold mb-4">Kontakt</h3>
             <div className="text-gray-600 hover:text-cta mb-4">
               <a href="mailto:info@revly.se">info@revly.se</a>
             </div>

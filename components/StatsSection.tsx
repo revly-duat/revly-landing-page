@@ -4,22 +4,22 @@ const stats = [
   {
     icon: BarChart,
     value: "2M+ SEK",
-    description: "Managed Ad Spend with an Average ROAS of 3.5x",
+    description: "Hanterad annonsbudget med ett genomsnittligt ROAS på 3,1",
   },
   {
     icon: ShoppingBag,
     value: "300%",
-    description: "Growth in E-Commerce Campaigns",
+    description: "Tillväxt i e-handelskampanjer",
   },
   {
     icon: TrendingUp,
     value: "260%",
-    description: "Average Online Revenue Increase",
+    description: "Snittökning i intäkter online",
   },
   {
     icon: Globe,
     value: "5+ Countries",
-    description: "Reached Millions of Potential Customers",
+    description: "Kampanjer med räckvidd över hela Europa",
   },
 ];
 
@@ -29,11 +29,11 @@ export const StatsSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Marketing Stats
+            Bevisat resultat
           </h2>
           <p className="max-w-2xl mx-auto text-lg">
-            Discover how Revly's marketing expertise drives measurable growth
-            and delivers results for businesses worldwide.
+            Se hur Revlys expertis inom marknadsföring skapar mätbar tillväxt
+            för e-handelsföretag i Sverige och Europa.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

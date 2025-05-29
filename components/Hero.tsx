@@ -64,7 +64,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <Button
             label={buttonText}
             styleType={buttonType}
-            additionalClasses="bg-cta text-white py-3 font-almaroseBold w-64 sm:w-72 text-lg sm:text-xl"
+            additionalClasses="bg-cta text-white py-3 font-almaroseBold w-64 text-lg sm:text-xl"
             onClick={handleButtonClick}
           ></Button>
         </div>

@@ -13,82 +13,81 @@ import {
   Settings,
   Trophy,
 } from "lucide-react";
-import { CoursesList } from "components/CoursesList";
 import Button from "components/ui/Button";
 import { useRouter } from "next/router";
 
 const rmsFeatures = [
   {
     icon: MessageCircle,
-    title: "Review Management",
+    title: "Recensionshantering",
     description:
-      "Centralize and manage reviews from multiple platforms like Google Reviews, Trustpilot, and more. Respond directly and maintain your reputation effortlessly.",
+      "Samla och hantera recensioner från plattformar som Google Reviews, Trustpilot m.fl. Svara direkt och håll varumärkets rykte i topp med allt på ett ställe.",
   },
   {
     icon: BarChart,
-    title: "Social Media Insights",
+    title: "Sociala medier-insikter",
     description:
-      "Monitor and analyze social media engagement. Manage comments, likes, and trends while using AI-generated insights to optimize your strategy.",
+      "Följ och analysera engagemang på sociala medier. Hantera kommentarer och trender med hjälp av AI-insikter för smartare strategi.",
   },
   {
     icon: TrendingUp,
-    title: "Analytics & Reporting",
+    title: "Analys & rapporter",
     description:
-      "Generate custom reports with powerful analytics. Track trends across reviews, social media, and customer engagement to make informed decisions.",
+      "Skapa skräddarsydda rapporter med kraftfull analys. Få insikter från recensioner, sociala medier och kundbeteende.",
   },
   {
     icon: Calendar,
-    title: "Content Manager",
+    title: "Innehållsplanering",
     description:
-      "Schedule posts for Instagram, Twitter, Facebook, and more. Streamline your content planning and ensure consistent online presence.",
+      "Schemalägg inlägg för Instagram, Facebook, X och fler plattformar. Planera innehåll på ett ställe och håll din närvaro konsekvent.",
   },
   {
     icon: Settings,
-    title: "AI Feedback & Ratings",
+    title: "AI-feedback & betyg",
     description:
-      "Receive actionable AI-driven feedback based on reviews and social media trends. Understand customer sentiment and improve your strategies.",
+      "Få konkreta förbättringsförslag baserat på AI-analys av recensioner och sociala trender. Förstå vad kunderna verkligen tycker.",
   },
   {
     icon: Trophy,
-    title: "Competitive Benchmarking",
+    title: "Konkurrentanalys",
     description:
-      "Visualize your ranking among competitors. Gain insights into how your business compares with others and see if you're in the top 1% based on customer ratings.",
+      "Se hur du står dig mot konkurrenterna. Jämför betyg och trender och se om du når topp 1% i din kategori.",
   },
 ];
 
 const landingPageFAQs = [
   {
-    question: "What services does Revly offer?",
+    question: "Vilka tjänster erbjuder Revly?",
     answer:
-      "Revly offers comprehensive solutions to help businesses and individuals grow. Our services include advanced media buying strategies, a powerful Review Management System (RMS) for online presence improvement, and industry-focused courses through Revly Academy in marketing, data analytics, and IT.",
+      "Revly hjälper e-handelsföretag växa med hjälp av datadriven annonsering, strategi och innehåll. Vi utvecklar också ett eget system för recensions- och innehållshantering (RMS), perfekt för dig som vill jobba smartare och mer strukturerat.",
   },
   {
-    question: "Is Revly's Review Management System available now?",
+    question: "Är Revlys Review Management System tillgängligt idag?",
     answer:
-      "Our Review Management System is currently in development and will be launching soon. Sign up for our newsletter to stay updated on its release and other exciting updates!",
+      "Inte än. Systemet är fortfarande under utveckling. Men du kan redan nu höra av dig för att påverka utvecklingen eller bli testpilot längre fram.",
   },
   {
-    question: "Who can benefit from Revly's services?",
+    question: "Vem har nytta av Revlys tjänster?",
     answer:
-      "Revly’s solutions are designed for both businesses aiming to scale their operations and individuals seeking to enhance their professional skills. Whether you're a startup, an established company, or a professional looking to grow, we have something for you.",
+      "Vi jobbar med växande e-handelsföretag som vill ta sin marknadsföring till nästa nivå. Oavsett om du är startup eller etablerad, vi hjälper dig hitta rätt väg framåt.",
   },
   {
-    question: "How can I get started with Revly?",
+    question: "Hur kommer jag igång?",
     answer:
-      "Getting started is simple! Contact us through our online form or send an email to info@revly.se. For courses, you can explore our Academy page and register your interest directly.",
+      "Fyll i kontaktformuläret eller skicka ett mejl till info@revly.se så ser vi hur vi kan jobba tillsammans.",
   },
   {
-    question: "Does Revly offer customized solutions?",
+    question: "Erbjuder Revly skräddarsydda lösningar?",
     answer:
-      "Yes! We tailor our marketing strategies, review management solutions, and training programs to meet the specific needs of your business or personal growth goals.",
+      "Ja! Alla våra lösningar anpassas efter dina behov, oavsett om det handlar om betald annonsering, innehåll eller strategi.",
   },
 ];
 
-const seoTitle = "Revly - Simplify Review Management, Marketing & Training";
+const seoTitle = "Revly - Marknadsföring och omdömeshantering";
 const seoDescription =
-  "Grow smarter with Revly's solutions for review management, marketing, and training. Simplify your business growth today.";
+  "Revly hjälper företag att växa snabbare med hjälp av datadriven annonsering, tydlig struktur och smarta insikter.";
 const seoUrl = "https://www.revly.se";
-const faviconAlt = "Revly - Simplify Business Growth";
+const faviconAlt = "Revly - Marknadsföring och omdömeshantering";
 
 function Home() {
   const router = useRouter();
@@ -119,20 +118,20 @@ function Home() {
       />
       <div className="min-h-screen">
         <HeroSection
-          title="Simplify Your Business Growth with Revly"
-          subtitle="Simplifying success through AI-powered insights, expert marketing, and
-          professional training to help your business lead in any market."
+          title="Skapa tillväxt med Revly"
+          subtitle="Revly hjälper e-handelsföretag växa med datadrivna annonser, tydlig struktur och AI-drivna lösningar."
           buttonType="secondary"
-          buttonText="Learn More"
+          buttonText="Läs mer"
           buttonLink="#services"
-          gradientClass="bg-heroGradient bg-[length:200%_200%] animate-gradient-move"
+          gradientClass="bg-rmsGradient bg-[length:200%_200%] animate-gradient-move"
           animatedText={false}
         />
+
         <Services />
         <StatsSection />
         <div className="w-full flex justify-center bg-gray-50 pb-32">
           <Button
-            label={"Learn More"}
+            label={"Läs mer"}
             styleType={"primary"}
             onClick={() => router.push("/marketing")}
           ></Button>
@@ -140,20 +139,16 @@ function Home() {
         <FeaturesSection
           features={rmsFeatures}
           heading="Review Management System"
-          subheading="Discover the tools you need to simplify review management and drive online success."
+          subheading="Vi bygger just nu ett system för att förenkla hantering av recensioner, innehåll och kundfeedback utvecklat för e-handlare som vill jobba mer datadrivet."
         />
         <div className="w-full flex justify-center bg-white pb-32">
           <Button
-            label={"Learn More"}
+            label={"Läs mer"}
             styleType={"primary"}
             onClick={() => router.push("/rms")}
           ></Button>
         </div>
-        <CoursesList />
-        <FAQSection
-          title={"Frequently Asked Questions"}
-          faqs={landingPageFAQs}
-        />
+        <FAQSection title={"Vanliga frågor"} faqs={landingPageFAQs} />
       </div>
     </>
   );

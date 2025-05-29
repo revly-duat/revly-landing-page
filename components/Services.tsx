@@ -1,13 +1,13 @@
-import { Megaphone, Star, GraduationCap } from "lucide-react";
+import { Megaphone, Star } from "lucide-react";
 import Button from "components/ui/Button/index";
 import { useRouter } from "next/router";
 
 const services = [
   {
     icon: Megaphone,
-    title: "Marketing",
+    title: "Marknadsföring",
     description:
-      "Scale your business with advanced data-driven marketing strategies tailored to reach new markets.",
+      "Skala er verksamhet med datadrivna marknadsstrategier, skräddarsydda för att hitta rätt målgrupp och driva lönsam tillväxt.",
     id: "marketing",
     link: "/marketing",
   },
@@ -15,17 +15,9 @@ const services = [
     icon: Star,
     title: "Review Management System",
     description:
-      "Manage reviews and strengthen your brand's reputation with actionable AI-driven insights.",
+      "Hantera recensioner och förstärk ert varumärkes rykte med insiktsdriven feedback och tydliga AI-baserade rekommendationer.",
     id: "rms",
     link: "/rms",
-  },
-  {
-    icon: GraduationCap,
-    title: "Academy",
-    description:
-      "Upskill your team with industry-focused courses in Data and IT to drive innovation.",
-    id: "courses",
-    link: "/academy",
   },
 ];
 
@@ -40,13 +32,14 @@ export const Services = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
-            Our Services
+            Våra tjänster
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Comprehensive solutions to help your business thrive
+            Vi erbjuder lösningar som hjälper er att växa smartare, snabbare och
+            med full kontroll.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
@@ -62,7 +55,7 @@ export const Services = () => {
                 </p>
               </div>
               <Button
-                label="Learn More"
+                label="Läs mer"
                 styleType="primary"
                 additionalClasses="mt-auto"
                 onClick={() => router.push(service.link)}
