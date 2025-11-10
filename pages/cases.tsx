@@ -19,16 +19,13 @@ export default function CasesPage() {
             subtitle="Läs mer om våra cases och se resultat samt metodik som använts för att försäkra tillväxt."
             items={[
               {
-                client: "Skillsocks",
-                goal: "Skala D2C-försäljning lönsamt",
-                approach: [
-                  "Full-funnel-struktur",
-                  "Lokala tester",
-                  "Kreativ iteration",
-                ],
-                results: ["+172% ROAS", "+63% CTR", "4.1x blended return"],
-                badge: "E-handel",
+                client: "Nytt projekt",
+                goal: "Lanseras snart",
+                approach: [],
+                results: [],
+                badge: "Under arbete",
                 img: "/skillsocks_logo.png",
+                comingSoon: true,
               },
               {
                 client: "IOAKU",

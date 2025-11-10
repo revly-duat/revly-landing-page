@@ -9,13 +9,12 @@ import { Sparkles, BarChart3, LineChart } from "lucide-react";
 import { NextSeo } from "next-seo";
 
 const latestCase = {
-  client: "Skillsocks",
-  goal: "Skala D2C-försäljning lönsamt",
-  approach: ["Full-funnel-struktur", "Lokala tester", "Kreativ iteration"],
-  results: ["+172% ROAS", "+63% CTR", "4.1x blended return"],
-  badge: "E-handel",
-  img: "/skillsocks_logo.png",
-  // slug: "skillsocks" // valfritt, om/ när du gör case-detaljsidor
+  client: "IOAKU",
+  goal: "Identifiera bäst presterande EU-marknader",
+  approach: ["Bred geotestning", "Kreativa vinklar", "Konsoliderad spend"],
+  results: ["-28% CPA", "+41% CVR"],
+  badge: "Smycken",
+  img: "/ioaku_logo.png",
 };
 
 const process: ProcessItem[] = [
@@ -98,16 +97,13 @@ export default function HomePage() {
           subtitle="Se hur vi har hjälpt varumärken växa genom att kombinera analys, kreativa iterationer och smart skalning."
           items={[
             {
-              client: "Skillsocks",
-              goal: "Skala D2C-försäljning lönsamt",
-              approach: [
-                "Full-funnel-struktur",
-                "Lokala tester",
-                "Kreativ iteration",
-              ],
-              results: ["+172% ROAS", "+63% CTR", "4.1x blended return"],
-              badge: "E-handel",
+              client: "Nytt projekt",
+              goal: "Lanseras snart",
+              approach: [],
+              results: [],
+              badge: "Under arbete",
               img: "/skillsocks_logo.png",
+              comingSoon: true,
             },
             {
               client: "IOAKU",

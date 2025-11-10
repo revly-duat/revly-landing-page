@@ -3,7 +3,7 @@ import * as React from "react";
 import Panel from "components/ui/Panel";
 import EqualCard from "components/ui/Cards";
 import { COLORS } from "components/theme/colors";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock } from "lucide-react";
 import Button from "components/ui/Button";
 
 export interface CaseItem {
@@ -13,6 +13,7 @@ export interface CaseItem {
   results: string[];
   badge: string;
   img: string;
+  comingSoon?: boolean; // <-- Ny flagga
 }
 
 interface CaseCardProps {
@@ -20,6 +21,8 @@ interface CaseCardProps {
 }
 
 const CaseCard: React.FC<CaseCardProps> = ({ item }) => {
+  const isComingSoon = item.comingSoon === true;
+
   return (
     <Panel border={COLORS.navy700} className="h-full">
       <EqualCard>
@@ -39,69 +42,83 @@ const CaseCard: React.FC<CaseCardProps> = ({ item }) => {
               {item.badge}
             </span>
           </div>
+
           <h3 className="text-xl font-bold" style={{ color: COLORS.white }}>
             {item.client}
           </h3>
           <p className="mt-1 text-sm" style={{ color: COLORS.textMuted }}>
             Mål: {item.goal}
           </p>
-          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div>
-              <p
-                className="text-xs font-semibold"
-                style={{ color: COLORS.yellow400 }}
-              >
-                Metod
+
+          {isComingSoon ? (
+            <div className="flex flex-col items-center justify-center flex-1 mt-8 mb-4 text-center">
+              <Clock className="h-8 w-8 text-yellow-400 mb-2" />
+              <p className="text-yellow-400 font-semibold text-sm">
+                Kommer snart
               </p>
-              <ul className="mt-1 space-y-1">
-                {item.approach.map((a) => (
-                  <li
-                    key={a}
-                    className="text-sm flex items-start gap-2"
-                    style={{ color: COLORS.text }}
-                  >
-                    <CheckCircle2
-                      className="h-4 w-4 mt-0.5"
-                      style={{ color: COLORS.yellow500 }}
-                    />
-                    {a}
-                  </li>
-                ))}
-              </ul>
             </div>
-            <div>
-              <p
-                className="text-xs font-semibold"
-                style={{ color: COLORS.yellow400 }}
-              >
-                Resultat
-              </p>
-              <ul className="mt-1 space-y-1">
-                {item.results.map((r) => (
-                  <li
-                    key={r}
-                    className="text-sm"
-                    style={{ color: COLORS.text }}
+          ) : (
+            <>
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <p
+                    className="text-xs font-semibold"
+                    style={{ color: COLORS.yellow400 }}
                   >
-                    {r}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="mt-auto" />
-          <div className="flex justify-bottom">
-            <Button
-              additionalClasses="mt-4 flex-grow"
-              label="Läs mer"
-              styleType="secondarySmall"
-              icon={<ArrowRight className="h-4 w-4" />}
-              onClick={() => {
-                if (typeof window !== "undefined")
-                  window.location.href = "/contact";
-              }}
-            />
-          </div>
+                    Metod
+                  </p>
+                  <ul className="mt-1 space-y-1">
+                    {item.approach.map((a) => (
+                      <li
+                        key={a}
+                        className="text-sm flex items-start gap-2"
+                        style={{ color: COLORS.text }}
+                      >
+                        <CheckCircle2
+                          className="h-4 w-4 mt-0.5"
+                          style={{ color: COLORS.yellow500 }}
+                        />
+                        {a}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p
+                    className="text-xs font-semibold"
+                    style={{ color: COLORS.yellow400 }}
+                  >
+                    Resultat
+                  </p>
+                  <ul className="mt-1 space-y-1">
+                    {item.results.map((r) => (
+                      <li
+                        key={r}
+                        className="text-sm"
+                        style={{ color: COLORS.text }}
+                      >
+                        {r}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-auto" />
+              <div className="flex justify-bottom">
+                <Button
+                  additionalClasses="mt-4 flex-grow"
+                  label="Läs mer"
+                  styleType="secondarySmall"
+                  icon={<ArrowRight className="h-4 w-4" />}
+                  onClick={() => {
+                    if (typeof window !== "undefined")
+                      window.location.href = "/contact";
+                  }}
+                />
+              </div>
+            </>
+          )}
         </div>
       </EqualCard>
     </Panel>
