@@ -125,10 +125,10 @@ export const Pricing = () => {
               className="rounded-xl shadow-md p-6 bg-white hover:shadow-lg transition-shadow flex flex-col justify-between items-center"
             >
               <div>
-                <h3 className="text-xl font-almaroseSemiBold text-primary mb-4">
+                <h3 className="text-xl font-heading text-primary mb-4">
                   {plan.title}
                 </h3>
-                <p className="text-4xl font-almaroseBold text-cta mb-12">
+                <p className="text-4xl font-heading text-cta mb-12">
                   {plan.price}
                 </p>
                 <ul className="text-gray-600 space-y-2 mb-12">

@@ -33,5 +33,10 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "vite.config.ts"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "vite.config.ts",
+    "components/ui/ScrollFloat.tsx"
+  ]
 }

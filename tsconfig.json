@@ -32,6 +32,11 @@
     "incremental": true, // Enable incremental builds
     "isolatedModules": true // Enforce module boundaries
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/ui/ScrollFloat.tsx"
+  ],
   "exclude": ["node_modules"]
 }

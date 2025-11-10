@@ -18,6 +18,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        heading: ['"Krona One"', "sans-serif"],
+        body: ['"Figtree"', "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         background: "hsl(var(--background))",
@@ -47,17 +51,6 @@ export default {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
-      },
-      fontFamily: {
-        almarose: ["Almarose", "sans-serif"],
-      },
-      fontWeight: {
-        almaroseThin: "100",
-        almaroseLight: "300",
-        almaroseRegular: "400",
-        almaroseMedium: "500",
-        almaroseSemiBold: "600",
-        almaroseBold: "700",
       },
       keyframes: {
         "accordion-down": {
@@ -107,10 +100,9 @@ export default {
         "text-slide": "text-slide 10s cubic-bezier(0.83, 0, 0.17, 1) infinite", // Anpassa tiden till dina behov
       },
       backgroundImage: {
-        heroGradient:
-          "linear-gradient(90deg, #FFA000,rgb(255, 203, 48), #FFA000)",
+        heroGradient: "linear-gradient(90deg, #001D3D, #003566, #001D3D)",
         marketingGradient: "linear-gradient(90deg, #FF7043, #FFB74D, #FF7043)",
-        rmsGradient: "linear-gradient(90deg, #FFA000, #FF6F91, #FFA000)",
+        rmsGradient: "linear-gradient(90deg, #1a2274ff, #2837baff, #242d91ff)",
         academyGradient: "linear-gradient(90deg, #FFA000, #FF7043, #FFA000)",
       },
     },

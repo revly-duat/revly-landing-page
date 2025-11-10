@@ -1,157 +1,144 @@
-import Head from "next/head";
+// pages/index.tsx
+import Hero from "components/home/Hero";
+import CasesSection from "components/home/CasesSection/CasesSection";
+import ProcessSection from "components/home/ProcessSection/ProcessSection";
+import { ProcessItem } from "components/home/ProcessSection/ProcessCard";
+import FAQ, { FAQItem } from "components/home/FAQ";
+
+import { Sparkles, BarChart3, LineChart } from "lucide-react";
 import { NextSeo } from "next-seo";
-import { HeroSection } from "components/Hero";
-import { Services } from "components/Services";
-import { FAQSection } from "components/ui/FAQ";
-import { StatsSection } from "components/StatsSection";
-import { FeaturesSection } from "components/Features";
-import {
-  MessageCircle,
-  BarChart,
-  TrendingUp,
-  Calendar,
-  Settings,
-  Trophy,
-} from "lucide-react";
-import Button from "components/ui/Button";
-import { useRouter } from "next/router";
 
-const rmsFeatures = [
+const latestCase = {
+  client: "Skillsocks",
+  goal: "Skala D2C-försäljning lönsamt",
+  approach: ["Full-funnel-struktur", "Lokala tester", "Kreativ iteration"],
+  results: ["+172% ROAS", "+63% CTR", "4.1x blended return"],
+  badge: "E-handel",
+  img: "/skillsocks_logo.png",
+  // slug: "skillsocks" // valfritt, om/ när du gör case-detaljsidor
+};
+
+const process: ProcessItem[] = [
   {
-    icon: MessageCircle,
-    title: "Recensionshantering",
-    description:
-      "Samla och hantera recensioner från plattformar som Google Reviews, Trustpilot m.fl. Svara direkt och håll varumärkets rykte i topp med allt på ett ställe.",
+    title: "Insikt & analys",
+    text: "Marknadens signaler, målgrupper, plattformar innan första kronan spenderas.",
+    icon: Sparkles,
   },
   {
-    icon: BarChart,
-    title: "Sociala medier-insikter",
-    description:
-      "Följ och analysera engagemang på sociala medier. Hantera kommentarer och trender med hjälp av AI-insikter för smartare strategi.",
+    title: "Kreativ utveckling & testning",
+    text: "Vi testar hypoteser med ett högt tempo. Sedan skalar vi det som presterar bäst.",
+    icon: BarChart3,
   },
   {
-    icon: TrendingUp,
-    title: "Analys & rapporter",
-    description:
-      "Skapa skräddarsydda rapporter med kraftfull analys. Få insikter från recensioner, sociala medier och kundbeteende.",
+    title: "Skalning & optimering",
+    text: "Mer struktur. Mer data. Mer effekt utan att tappa marginal.",
+    icon: LineChart,
+  },
+];
+const faqs: FAQItem[] = [
+  {
+    q: "Vad gör Revly kortfattat?",
+    a: "Vi hjälper företag driva lönsam tillväxt genom datadriven annonsering, iterativt kreativitetsarbete och optimering av hela kundresan online.",
   },
   {
-    icon: Calendar,
-    title: "Innehållsplanering",
-    description:
-      "Schemalägg inlägg för Instagram, Facebook, X och fler plattformar. Planera innehåll på ett ställe och håll din närvaro konsekvent.",
+    q: "Vem passar Revly för?",
+    a: "Alla företag som vill växa genom digital kundanskaffning. Oavsett om du säljer produkter, tjänster eller prenumerationer hjälper vi dig med strategi, annonser och optimering.",
   },
   {
-    icon: Settings,
-    title: "AI-feedback & betyg",
-    description:
-      "Få konkreta förbättringsförslag baserat på AI-analys av recensioner och sociala trender. Förstå vad kunderna verkligen tycker.",
+    q: "Hur skiljer ni er från en traditionell byrå?",
+    a: "Vi jobbar som en förlängning av ert team. Full transparens, högt tempo, datadrivna beslut och ansvar över hela funneln inte bara över annonserna.",
   },
   {
-    icon: Trophy,
-    title: "Konkurrentanalys",
-    description:
-      "Se hur du står dig mot konkurrenterna. Jämför betyg och trender och se om du når topp 1% i din kategori.",
+    q: "Hur snabbt kan vi komma igång?",
+    a: "Efter ett kort uppstartssamtal och access till era konton är vi ofta igång inom 1-2 veckor med struktur, analys och första testcykeln.",
+  },
+  {
+    q: "Kan ni producera annonsmaterial?",
+    a: "Ja. Vi kan hjälpa till med strategi, copy och kreativa koncept. Råmaterialet (bild/video) kommer oftast från kunden men vi kan även stötta med produktion vid behov.",
+  },
+  {
+    q: "Vad kostar det att jobba med er?",
+    a: "Det beror på omfattning och ansvar. Vanligast är ett fast månadsarvode, men vi är öppna för hybrid- eller performanceupplägg när det finns rätt förutsättningar.",
+  },
+  {
+    q: "Jobbar ni internationellt?",
+    a: "Ja. Vi har erfarenhet av att skala annonsering i hela EU, USA och Norden med lokala anpassningar av kanalval, creatives och språk.",
+  },
+  {
+    q: "Hur vet ni vad som funkar?",
+    a: "Vi sätter hypoteser, testar strukturerat, mäter resultat och skalar det som funkar. Nya kreativa A/B-tester och målgruppsiterationer sker varje vecka.",
+  },
+  {
+    q: "Är ni bara fokuserade på annonsering?",
+    a: "Nej. Vi jobbar helhetsorienterat. Förutom annonsering optimerar vi även funnels, landningssidor, konverteringsflöden och kundvärde över tid.",
   },
 ];
 
-const landingPageFAQs = [
-  {
-    question: "Vilka tjänster erbjuder Revly?",
-    answer:
-      "Revly hjälper e-handelsföretag växa med hjälp av datadriven annonsering, strategi och innehåll. Vi utvecklar också ett eget system för recensions- och innehållshantering (RMS), perfekt för dig som vill jobba smartare och mer strukturerat.",
-  },
-  {
-    question: "Är Revlys Review Management System tillgängligt idag?",
-    answer:
-      "Inte än. Systemet är fortfarande under utveckling. Men du kan redan nu höra av dig för att påverka utvecklingen eller bli testpilot längre fram.",
-  },
-  {
-    question: "Vem har nytta av Revlys tjänster?",
-    answer:
-      "Vi jobbar med växande e-handelsföretag som vill ta sin marknadsföring till nästa nivå. Oavsett om du är startup eller etablerad, vi hjälper dig hitta rätt väg framåt.",
-  },
-  {
-    question: "Hur kommer jag igång?",
-    answer:
-      "Fyll i kontaktformuläret eller skicka ett mejl till info@revly.se så ser vi hur vi kan jobba tillsammans.",
-  },
-  {
-    question: "Erbjuder Revly skräddarsydda lösningar?",
-    answer:
-      "Ja! Alla våra lösningar anpassas efter dina behov, oavsett om det handlar om betald annonsering, innehåll eller strategi.",
-  },
-];
-
-const seoTitle = "Revly - Marknadsföring och omdömeshantering";
-const seoDescription =
-  "Revly hjälper företag att växa snabbare med hjälp av datadriven annonsering, tydlig struktur och smarta insikter.";
-const seoUrl = "https://www.revly.se";
-const faviconAlt = "Revly - Marknadsföring och omdömeshantering";
-
-function Home() {
-  const router = useRouter();
-
+export default function HomePage() {
   return (
     <>
-      <Head>
-        <link rel="icon" href="/revly_favicon.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
       <NextSeo
-        title={seoTitle}
-        description={seoDescription}
-        openGraph={{
-          url: seoUrl,
-          title: seoTitle,
-          description: seoDescription,
-          images: [
-            {
-              url: "/revly_open_graph.png",
-              width: 1200,
-              height: 630,
-              alt: faviconAlt,
-              type: "image/png",
-            },
-          ],
-        }}
+        title="Revly - Datadriven marknadsföring som skalar tillväxt"
+        description="Revly hjälper företag växa lönsamt med datadriven marknadsföring, strategi och kreativt innehåll. Meta, TikTok och Google - testat, optimerat och skalbart."
+        canonical="https://www.revly.se"
       />
-      <div className="min-h-screen">
-        <HeroSection
-          title="Skapa tillväxt med Revly"
-          subtitle="Revly hjälper e-handelsföretag växa med datadrivna annonser, tydlig struktur och AI-drivna lösningar."
-          buttonType="secondary"
-          buttonText="Läs mer"
-          buttonLink="#services"
-          gradientClass="bg-rmsGradient bg-[length:200%_200%] animate-gradient-move"
-          animatedText={false}
+      <header className="max-w-screen">
+        <video
+          loop
+          autoPlay
+          muted
+          playsInline
+          className="fixed w-screen h-screen object-cover brightness-50 -z-10"
+        >
+          <source src="/shadergradient.webm" />
+        </video>
+        <Hero latestCase={latestCase} />
+        <CasesSection
+          title="Tillväxt vi jobbat med"
+          subtitle="Se hur vi har hjälpt varumärken växa genom att kombinera analys, kreativa iterationer och smart skalning."
+          items={[
+            {
+              client: "Skillsocks",
+              goal: "Skala D2C-försäljning lönsamt",
+              approach: [
+                "Full-funnel-struktur",
+                "Lokala tester",
+                "Kreativ iteration",
+              ],
+              results: ["+172% ROAS", "+63% CTR", "4.1x blended return"],
+              badge: "E-handel",
+              img: "/skillsocks_logo.png",
+            },
+            {
+              client: "IOAKU",
+              goal: "Identifiera bäst presterande EU-marknader",
+              approach: [
+                "Bred geotestning",
+                "Kreativa vinklar",
+                "Konsoliderad spend",
+              ],
+              results: ["-28% CPA", "+41% CVR"],
+              badge: "Smycken",
+              img: "/ioaku_logo.png",
+            },
+          ]}
+          logos={[
+            { src: "/skillsocks_logo.png", alt: "Skillsocks" },
+            { src: "/ioaku_logo.png", alt: "IOAKU" },
+            { src: "/kindpatches_logo.png", alt: "Kind Patches" },
+            { src: "/drakenberg_logo.png", alt: "Drakenberg Sjölin" },
+            { src: "/kyla_logo.svg", alt: "Kyla" },
+          ]}
         />
 
-        <Services />
-        <StatsSection />
-        <div className="w-full flex justify-center bg-gray-50 pb-32">
-          <Button
-            label={"Läs mer"}
-            styleType={"primary"}
-            onClick={() => router.push("/marketing")}
-          ></Button>
-        </div>
-        <FeaturesSection
-          features={rmsFeatures}
-          heading="Review Management System"
-          subheading="Vi bygger just nu ett system för att förenkla hantering av recensioner, innehåll och kundfeedback utvecklat för e-handlare som vill jobba mer datadrivet."
+        <ProcessSection
+          kicker="Vår metod"
+          title="Så jobbar vi steg för steg"
+          subtitle="Vi bygger inte kampanjer, vi bygger samarbeten. När vi förstår ert företag på djupet kan vi optimera det som om det vore vårt eget."
+          items={process}
         />
-        <div className="w-full flex justify-center bg-white pb-32">
-          <Button
-            label={"Läs mer"}
-            styleType={"primary"}
-            onClick={() => router.push("/rms")}
-          ></Button>
-        </div>
-        <FAQSection title={"Vanliga frågor"} faqs={landingPageFAQs} />
-      </div>
+        <FAQ items={faqs} />
+      </header>
     </>
   );
 }
-
-export default Home;

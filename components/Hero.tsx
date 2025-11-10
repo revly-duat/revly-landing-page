@@ -36,7 +36,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <div
-      className={`${gradientClass} min-h-screen flex flex-col justify-between`}
+      className={`${gradientClass} min-h-screen flex flex-col justify-between backdrop-blur-md`}
     >
       <div className="relative flex-grow flex flex-col justify-center items-center px-4">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 text-center">
@@ -44,7 +44,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <>
               <span className="overflow-hidden">Simplify Your Business </span>
               <span className="inline-flex flex-col h-[calc(theme(fontSize.4xl)*theme(lineHeight.tight))] sm:h-[calc(theme(fontSize.5xl)*theme(lineHeight.tight))] md:h-[calc(theme(fontSize.6xl)*theme(lineHeight.tight))] overflow-hidden">
-                <ul className="block animate-text-slide text-left leading-tight [&_li]:block">
+                <ul className="block animate-text-slide text-left [&_li]:block">
                   <li>Growth</li>
                   <li>Marketing</li>
                   <li>Reputation</li>
@@ -64,7 +64,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <Button
             label={buttonText}
             styleType={buttonType}
-            additionalClasses="bg-cta text-white py-3 font-almaroseBold w-64 text-lg sm:text-xl"
+            additionalClasses="bg-[#FFC300] text-[#001D3D] py-3 font-heading w-64 text-lg sm:text-xl"
             onClick={handleButtonClick}
           ></Button>
         </div>

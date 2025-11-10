@@ -100,7 +100,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             <div>
               <label
                 htmlFor="firstName"
-                className="block text-md font-almaroseSemiBold text-gray-700"
+                className="block text-md font-heading text-gray-700"
               >
                 Förnamn
               </label>
@@ -120,7 +120,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             <div>
               <label
                 htmlFor="lastName"
-                className="block text-md font-almaroseSemiBold text-gray-700"
+                className="block text-md font-heading text-gray-700"
               >
                 Efternamn
               </label>
@@ -140,7 +140,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             <div className="md:col-span-2">
               <label
                 htmlFor="email"
-                className="block text-md font-almaroseSemiBold text-gray-700"
+                className="block text-md font-heading text-gray-700"
               >
                 E-postadress
               </label>
@@ -162,7 +162,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           <div className="mb-12">
             <label
               htmlFor="message"
-              className="block text-md font-almaroseSemiBold text-gray-700"
+              className="block text-md font-heading text-gray-700"
             >
               Meddelande
             </label>
@@ -182,7 +182,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         <div className="flex justify-center">
           <button
             type="submit"
-            className="px-12 py-2 text-xl font-almaroseSemiBold text-white bg-cta rounded-xl shadow-md hover:bg-cta-hover hover:shadow-lg transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cta-color"
+            className="px-12 py-2 text-xl font-heading text-white bg-cta rounded-xl shadow-md hover:bg-cta-hover hover:shadow-lg transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cta-color"
           >
             Skicka
           </button>

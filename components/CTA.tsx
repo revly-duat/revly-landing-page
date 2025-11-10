@@ -18,13 +18,13 @@ export const CTA = () => {
           <Button
             label="Get Started Now"
             styleType="primary"
-            additionalClasses="font-almaroseBold text-md"
+            additionalClasses="font-heading text-md"
             onClick={() => router.push("/rms")}
           ></Button>
           <Button
             label="Contact us"
             styleType="transparent"
-            additionalClasses="text-white text-md font-almaroseBold"
+            additionalClasses="text-white text-md font-heading"
             onClick={() => router.push("/contact")}
           ></Button>
         </div>
