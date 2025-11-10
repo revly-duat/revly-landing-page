@@ -46,7 +46,7 @@ export default function AboutPage() {
         {/* HERO */}
         <Container className="">
           <FadeIn>
-            <div className="max-w-5xl flex flex-col mx-auto h-screen justify-center">
+            <div className="max-w-5xl flex flex-col mx-auto min-h-screen pt-32 md:pt-0 justify-center">
               <h1
                 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center"
                 style={{ color: COLORS.white, lineHeight: 1.18 }}
