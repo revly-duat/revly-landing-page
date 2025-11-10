@@ -54,7 +54,7 @@ export default function AboutPage() {
                 Långsiktig tillväxt
               </h1>
               <p
-                className="mt-5 text-md sm:text-lg text-center"
+                className="mt-5 text-base sm:text-lg text-center"
                 style={{ color: COLORS.text }}
               >
                 Vi hjälper varumärken skala kundanskaffning med tydlig struktur,
@@ -73,7 +73,7 @@ export default function AboutPage() {
           <FadeIn>
             <div className="grid grid-cols-1 gap-8 justify-items-center">
               <p
-                className="text-base sm:text-4xl text-center"
+                className="text-xl sm:text-4xl text-center"
                 style={{ color: COLORS.text }}
               >
                 Revly grundades för att göra tillväxt begriplig och mätbar. Vi
