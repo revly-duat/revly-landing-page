@@ -54,7 +54,7 @@ export default function AboutPage() {
                 Långsiktig tillväxt
               </h1>
               <p
-                className="mt-5 text-base sm:text-lg text-center"
+                className="mt-5 text-md sm:text-lg text-center"
                 style={{ color: COLORS.text }}
               >
                 Vi hjälper varumärken skala kundanskaffning med tydlig struktur,
