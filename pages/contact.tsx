@@ -1,24 +1,24 @@
-import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+// pages/contact.tsx (eller motsvarande route)
+
 import Container from "components/layout/Container";
-import Button from "components/ui/Button";
 import FadeIn from "components/ui/FadeIn";
 import Panel from "components/ui/Panel";
 import SectionTitle from "components/ui/SectionTitle";
 import { COLORS } from "components/theme/colors";
 import { NextSeo } from "next-seo";
+import { ArrowRight } from "lucide-react";
 
-// (Valfritt) om du har den nya modulen
-// import NewsletterSignup from "@/components/Newsletter/NewsletterSignup";
+// Justera import-sökvägen till där din ContactForm ligger
+import { ContactForm } from "components/ContactForm";
 
 const contactFAQs = [
   {
     q: "Hur lång tid tar det att få svar?",
-    a: "Vi svarar normalt inom 24–48 timmar. Bråttom? Mejla direkt till info@revly.se.",
+    a: "Vi svarar normalt inom 24-48 timmar. Bråttom? Mejla direkt till info@revly.se.",
   },
   {
     q: "Vilka tjänster erbjuder Revly?",
-    a: "Datadriven annonsering, strategi och kreativa iterationer för e-handel – med fokus på mätbar tillväxt.",
+    a: "Datadriven annonsering, strategi och kreativa iterationer för e-handel - med fokus på mätbar tillväxt.",
   },
   {
     q: "Hur kommer jag igång?",
@@ -27,47 +27,6 @@ const contactFAQs = [
 ];
 
 export default function ContactPage() {
-  // enkel formulärhantering lokalt
-  const [first, setFirst] = useState("");
-  const [last, setLast] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [sending, setSending] = useState(false);
-  const [feedback, setFeedback] = useState<string | null>(null);
-  const [ok, setOk] = useState<boolean | null>(null);
-
-  const validEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-
-  const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!first || !last || !validEmail(email) || !message) {
-      setOk(false);
-      setFeedback("Fyll i alla fält och ange en giltig e-post.");
-      return;
-    }
-
-    // Bas-lösning: öppna mailklient (ersätt med API/CRM när du vill)
-    setSending(true);
-    try {
-      const subject = encodeURIComponent("Kontaktförfrågan via revly.se");
-      const body = encodeURIComponent(
-        `Namn: ${first} ${last}\nE-post: ${email}\n\nMeddelande:\n${message}`
-      );
-      window.location.href = `mailto:info@revly.se?subject=${subject}&body=${body}`;
-      setOk(true);
-      setFeedback("Tack! Vi återkommer inom 1–2 arbetsdagar.");
-      setFirst("");
-      setLast("");
-      setEmail("");
-      setMessage("");
-    } catch {
-      setOk(false);
-      setFeedback("Något gick fel. Prova igen eller mejla info@revly.se.");
-    } finally {
-      setSending(false);
-    }
-  };
-
   return (
     <>
       <NextSeo
@@ -85,116 +44,25 @@ export default function ContactPage() {
           />
         </Container>
 
-        {/* FORM */}
+        {/* FORM (ersatt med ContactForm) */}
         <Container className="pb-20">
           <FadeIn>
             <Panel>
-              <form onSubmit={onSubmit} className="p-6 sm:p-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      className="block text-sm mb-1"
-                      style={{ color: COLORS.textMuted }}
-                    >
-                      Förnamn
-                    </label>
-                    <input
-                      value={first}
-                      onChange={(e) => setFirst(e.target.value)}
-                      required
-                      className="w-full rounded-xl px-4 py-3 outline-none focus-visible:ring-2 focus-visible:ring-[#FFC300] border transition"
-                      style={{
-                        background: COLORS.navy900,
-                        color: COLORS.text,
-                        borderColor: COLORS.overlay,
-                      }}
-                      placeholder="Ditt förnamn"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      className="block text-sm mb-1"
-                      style={{ color: COLORS.textMuted }}
-                    >
-                      Efternamn
-                    </label>
-                    <input
-                      value={last}
-                      onChange={(e) => setLast(e.target.value)}
-                      required
-                      className="w-full rounded-xl px-4 py-3 outline-none focus-visible:ring-2 focus-visible:ring-[#FFC300] border transition"
-                      style={{
-                        background: COLORS.navy900,
-                        color: COLORS.text,
-                        borderColor: COLORS.overlay,
-                      }}
-                      placeholder="Ditt efternamn"
-                    />
-                  </div>
-                </div>
-
-                <div className="mt-4">
-                  <label
-                    className="block text-sm mb-1"
-                    style={{ color: COLORS.textMuted }}
-                  >
-                    E-postadress
-                  </label>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="w-full rounded-xl px-4 py-3 outline-none focus-visible:ring-2 focus-visible:ring-[#FFC300] border transition"
-                    style={{
-                      background: COLORS.navy900,
-                      color: COLORS.text,
-                      borderColor: COLORS.overlay,
-                    }}
-                    placeholder="Din e-postadress"
-                  />
-                </div>
-
-                <div className="mt-4">
-                  <label
-                    className="block text-sm mb-1"
-                    style={{ color: COLORS.textMuted }}
-                  >
-                    Meddelande
-                  </label>
-                  <textarea
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    required
-                    rows={5}
-                    className="w-full rounded-xl px-4 py-3 outline-none focus-visible:ring-2 focus-visible:ring-[#FFC300] border transition resize-y"
-                    style={{
-                      background: COLORS.navy900,
-                      color: COLORS.text,
-                      borderColor: COLORS.overlay,
-                    }}
-                    placeholder="Hur kan vi hjälpa dig?"
-                  />
-                </div>
-
-                {feedback && (
-                  <p
-                    className="mt-3 text-sm"
-                    style={{ color: ok ? COLORS.text : "#FCA5A5" }}
-                  >
-                    {feedback}
-                  </p>
-                )}
-
-                <div className="flex justify-center mt-6">
-                  <Button
-                    label={sending ? "Skickar…" : "Skicka"}
-                    styleType="primary"
-                    icon={<ArrowRight className="h-4 w-4" />}
-                    disabled={sending}
-                  />
-                </div>
-              </form>
+              <div className="p-0 sm:p-0">
+                <ContactForm
+                  title="Kontakta Revly"
+                  hideHeader
+                  subtitle="Fyll i formuläret så återkommer vi vanligtvis inom 24-48 timmar."
+                  fields={{
+                    company: true, // sätt till false om du inte vill visa fältet
+                    firstName: true,
+                    lastName: true,
+                    email: true,
+                    message: true, // sätt till false om du vill köra hårdkodat defaultMessage
+                  }}
+                  // defaultMessage="Jag vill boka ett uppstartssamtal." // valfritt när fields.message=false
+                />
+              </div>
             </Panel>
           </FadeIn>
         </Container>
@@ -229,9 +97,6 @@ export default function ContactPage() {
             </div>
           </FadeIn>
         </Container>
-
-        {/* Newsletter (om du vill ha med den här) */}
-        {/* <NewsletterSignup /> */}
       </main>
     </>
   );

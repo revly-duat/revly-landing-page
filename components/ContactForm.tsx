@@ -1,9 +1,14 @@
-import { useState } from "react";
+// components/ContactForm/index.tsx
+import * as React from "react";
 import emailjs from "emailjs-com";
+import Panel from "components/ui/Panel";
+import Button from "components/ui/Button";
+import { COLORS } from "components/theme/colors";
+import { ArrowRight } from "lucide-react";
 
 interface ContactFormProps {
-  title: string;
-  subtitle: string;
+  title?: string;
+  subtitle?: string;
   fields: {
     company?: boolean;
     firstName: boolean;
@@ -11,191 +16,307 @@ interface ContactFormProps {
     email: boolean;
     message: boolean;
   };
-  defaultMessage?: string; // Ny prop för hårdkodat meddelande
+  /** Om message-fältet är avstängt kan du skicka ett hårdkodat default-meddelande */
+  defaultMessage?: string;
+  /** Visa inte rubriker (om du redan har SectionTitle ovanför) */
+  hideHeader?: boolean;
+  /** ClassName för yttre wrapper om du vill styra spacing utifrån */
+  className?: string;
 }
 
 export const ContactForm: React.FC<ContactFormProps> = ({
-  title,
-  subtitle,
+  title = "Kontakta oss",
+  subtitle = "Fyll i formuläret så återkommer vi så snart vi kan.",
   fields,
   defaultMessage,
+  hideHeader = false,
+  className = "",
 }) => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = React.useState({
     company: "",
     firstName: "",
     lastName: "",
     email: "",
     message: "",
   });
+  const [sending, setSending] = React.useState(false);
+  const [feedback, setFeedback] = React.useState<string | null>(null);
+  const [ok, setOk] = React.useState<boolean | null>(null);
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [error, setError] = useState("");
+  const onChange =
+    (key: keyof typeof formData) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setFormData((s) => ({ ...s, [key]: e.target.value }));
+    };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const validEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setError("");
-    setIsSubmitted(false);
+    setFeedback(null);
+    setOk(null);
+
+    // Grundvalidering baserat på vilka fält som är aktiva
+    if (fields.firstName && !formData.firstName) {
+      setOk(false);
+      setFeedback("Fyll i förnamn.");
+      return;
+    }
+    if (fields.lastName && !formData.lastName) {
+      setOk(false);
+      setFeedback("Fyll i efternamn.");
+      return;
+    }
+    if (fields.email && !validEmail(formData.email)) {
+      setOk(false);
+      setFeedback("Ange en giltig e-postadress.");
+      return;
+    }
+    if (fields.message && !formData.message && !defaultMessage) {
+      setOk(false);
+      setFeedback("Skriv ett meddelande.");
+      return;
+    }
+
+    setSending(true);
 
     const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
     const templateId =
       process.env.NEXT_PUBLIC_EMAILJS_MARKETING_TEMPLATE_ID || "";
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
 
-    const combinedName = `${formData.firstName} ${formData.lastName}`;
-
-    // Skapa payload och hantera hårdkodat meddelande
     const payload = {
       company: formData.company,
-      name: combinedName,
+      name: `${formData.firstName} ${formData.lastName}`.trim(),
       email: formData.email,
-      message: fields.message ? formData.message : defaultMessage || "", // Använd hårdkodat meddelande om message är avstängt
+      message: fields.message ? formData.message : defaultMessage || "",
     };
 
     try {
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error("Missing required EmailJS environment variables");
+      if (serviceId && templateId && publicKey) {
+        await emailjs.send(serviceId, templateId, payload, publicKey);
+        setOk(true);
+        setFeedback("Tack! Vi återkommer inom 1–2 arbetsdagar.");
+        setFormData({
+          company: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        // Fallback: öppna mailklienten
+        const subject = encodeURIComponent("Kontaktförfrågan via revly.se");
+        const lines = [
+          payload.name ? `Namn: ${payload.name}` : "",
+          payload.company ? `Företag: ${payload.company}` : "",
+          payload.email ? `E-post: ${payload.email}` : "",
+          "",
+          "Meddelande:",
+          payload.message || "",
+        ]
+          .filter(Boolean)
+          .join("\n");
+        const body = encodeURIComponent(lines);
+        window.location.href = `mailto:info@revly.se?subject=${subject}&body=${body}`;
+        setOk(true);
+        setFeedback("Tack! Vi återkommer inom 1–2 arbetsdagar.");
       }
-
-      await emailjs.send(serviceId, templateId, payload, publicKey);
-
-      setIsSubmitted(true);
-      setFormData({
-        company: "",
-        firstName: "",
-        lastName: "",
-        email: "",
-        message: "",
-      });
     } catch (err) {
       console.error("Failed to send message:", err);
-      setError(
-        "Failed to send your message. Please try again. If the problem persists, contact us at info@revly.se."
+      setOk(false);
+      setFeedback(
+        "Något gick fel. Prova igen, eller mejla oss på info@revly.se."
       );
+    } finally {
+      setSending(false);
     }
   };
 
   return (
-    <section
-      id="contactForm"
-      className="scroll-mt-[calc(20vh-96px)] py-32 px-6 sm:px-6 lg:px-8 bg-white"
-    >
-      <div className="max-w-4xl mx-auto text-center mb-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
-          {title}
-        </h2>
-        <p className="text-gray-600">{subtitle}</p>
-      </div>
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-3xl mx-auto rounded-xl p-6"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          {fields.firstName && (
-            <div>
-              <label
-                htmlFor="firstName"
-                className="block text-md font-heading text-gray-700"
-              >
-                Förnamn
-              </label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-cta focus:border-cta"
-                placeholder="Ditt förnamn"
-                required
-              />
-            </div>
-          )}
-          {fields.lastName && (
-            <div>
-              <label
-                htmlFor="lastName"
-                className="block text-md font-heading text-gray-700"
-              >
-                Efternamn
-              </label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleChange}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-cta focus:border-cta"
-                placeholder="Ditt efternamn"
-                required
-              />
-            </div>
-          )}
-          {fields.email && (
-            <div className="md:col-span-2">
-              <label
-                htmlFor="email"
-                className="block text-md font-heading text-gray-700"
-              >
-                E-postadress
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-cta focus:border-cta"
-                placeholder="Din e-postadress"
-                required
-              />
-            </div>
-          )}
-        </div>
-
-        {fields.message && (
-          <div className="mb-12">
-            <label
-              htmlFor="message"
-              className="block text-md font-heading text-gray-700"
+    <div className={className}>
+      {!hideHeader && (title || subtitle) && (
+        <div className="max-w-3xl mx-auto text-center mb-6 sm:mb-8">
+          {title && (
+            <h2
+              className="text-3xl sm:text-4xl font-bold"
+              style={{ color: COLORS.white }}
             >
-              Meddelande
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              rows={5}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-cta focus:border-cta"
-              placeholder="Hur kan vi hjälpa dig?"
-              required
-            ></textarea>
-          </div>
-        )}
-
-        <div className="flex justify-center">
-          <button
-            type="submit"
-            className="px-12 py-2 text-xl font-heading text-white bg-cta rounded-xl shadow-md hover:bg-cta-hover hover:shadow-lg transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cta-color"
-          >
-            Skicka
-          </button>
+              {title}
+            </h2>
+          )}
+          {subtitle && (
+            <p
+              className="mt-3 text-base sm:text-lg"
+              style={{ color: COLORS.text }}
+            >
+              {subtitle}
+            </p>
+          )}
         </div>
+      )}
 
-        {isSubmitted && (
-          <p className="text-green-500 mt-4 text-center">
-            Tack för att du har av dig till Revly! Vi återkommer så snart vi
-            kan.
-          </p>
-        )}
-        {error && <p className="text-red-400 mt-4 text-center">{error}</p>}
-      </form>
-    </section>
+      <Panel>
+        <form className="p-6 sm:p-8">
+          {/* Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {fields.company && (
+              <div className="sm:col-span-2">
+                <label
+                  htmlFor="company"
+                  className="block text-sm mb-1"
+                  style={{ color: COLORS.textMuted }}
+                >
+                  Företag
+                </label>
+                <input
+                  id="company"
+                  name="company"
+                  value={formData.company}
+                  onChange={onChange("company")}
+                  className="w-full rounded-xl px-4 py-3 outline-none focus-visible:ring-2 focus-visible:ring-[#FFC300] border transition"
+                  style={{
+                    background: COLORS.navy900,
+                    color: COLORS.text,
+                    borderColor: COLORS.overlay,
+                  }}
+                  placeholder="Ditt företagsnamn"
+                />
+              </div>
+            )}
+
+            {fields.firstName && (
+              <div>
+                <label
+                  htmlFor="firstName"
+                  className="block text-sm mb-1"
+                  style={{ color: COLORS.textMuted }}
+                >
+                  Förnamn
+                </label>
+                <input
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={onChange("firstName")}
+                  required
+                  className="w-full rounded-xl px-4 py-3 outline-none focus-visible:ring-2 focus-visible:ring-[#FFC300] border transition"
+                  style={{
+                    background: COLORS.navy900,
+                    color: COLORS.text,
+                    borderColor: COLORS.overlay,
+                  }}
+                  placeholder="Ditt förnamn"
+                />
+              </div>
+            )}
+
+            {fields.lastName && (
+              <div>
+                <label
+                  htmlFor="lastName"
+                  className="block text-sm mb-1"
+                  style={{ color: COLORS.textMuted }}
+                >
+                  Efternamn
+                </label>
+                <input
+                  id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={onChange("lastName")}
+                  required
+                  className="w-full rounded-xl px-4 py-3 outline-none focus-visible:ring-2 focus-visible:ring-[#FFC300] border transition"
+                  style={{
+                    background: COLORS.navy900,
+                    color: COLORS.text,
+                    borderColor: COLORS.overlay,
+                  }}
+                  placeholder="Ditt efternamn"
+                />
+              </div>
+            )}
+
+            {fields.email && (
+              <div className="sm:col-span-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm mb-1"
+                  style={{ color: COLORS.textMuted }}
+                >
+                  E-postadress
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={onChange("email")}
+                  required
+                  className="w-full rounded-xl px-4 py-3 outline-none focus-visible:ring-2 focus-visible:ring-[#FFC300] border transition"
+                  style={{
+                    background: COLORS.navy900,
+                    color: COLORS.text,
+                    borderColor: COLORS.overlay,
+                  }}
+                  placeholder="din@epost.se"
+                />
+              </div>
+            )}
+          </div>
+
+          {fields.message && (
+            <div className="mt-4">
+              <label
+                htmlFor="message"
+                className="block text-sm mb-1"
+                style={{ color: COLORS.textMuted }}
+              >
+                Meddelande
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={onChange("message")}
+                required
+                rows={5}
+                className="w-full rounded-xl px-4 py-3 outline-none focus-visible:ring-2 focus-visible:ring-[#FFC300] border transition resize-y"
+                style={{
+                  background: COLORS.navy900,
+                  color: COLORS.text,
+                  borderColor: COLORS.overlay,
+                }}
+                placeholder="Hur kan vi hjälpa dig?"
+              />
+            </div>
+          )}
+
+          {/* Feedback */}
+          {feedback && (
+            <p
+              className="mt-3 text-sm"
+              style={{ color: ok ? COLORS.text : "#FCA5A5" }}
+              role={ok ? "status" : "alert"}
+            >
+              {feedback}
+            </p>
+          )}
+
+          {/* Submit */}
+          <div className="flex justify-center mt-6">
+            <Button
+              label={sending ? "Skickar…" : "Skicka"}
+              styleType="primary"
+              icon={<ArrowRight className="h-4 w-4" />}
+              disabled={sending}
+              onClick={handleSubmit}
+            />
+          </div>
+        </form>
+      </Panel>
+    </div>
   );
 };
+
+export default ContactForm;
