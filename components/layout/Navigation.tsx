@@ -38,6 +38,7 @@ export const Navigation = () => {
           <div className="flex items-center justify-center space-x-8">
             <div className="hidden lg:flex font-bold items-center space-x-8">
               {[
+                { label: "Hem", link: "/" },
                 { label: "Resultat", link: "/cases" },
                 { label: "Kontakt", link: "/contact" },
                 { label: "Om oss", link: "/about" },
