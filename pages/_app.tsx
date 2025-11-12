@@ -27,6 +27,16 @@ function MyApp({ Component, pageProps }: AppProps) {
         type="text/javascript"
         async
       ></Script>
+      {/* Apollo Form */}
+      <Script
+        src="https://assets.apollo.io/js/apollo-inbound.js"
+        strategy="afterInteractive"
+        onLoad={() => {
+          (window as any).ApolloInbound?.formEnrichment?.init({
+            appId: "691481b06928f980112e33b7",
+          });
+        }}
+      />
       {/* Apollo Tracker */}
       <Script
         id="apollo-tracker"
