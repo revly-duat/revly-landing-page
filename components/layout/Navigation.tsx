@@ -26,7 +26,7 @@ export const Navigation = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 font-body transition-all duration-500 ${
+      className={`fixed w-full z-10 font-body transition-all duration-500 ${
         scrolled
           ? "backdrop-blur-md bg-[rgba(0,13,29,0.8)] shadow-[0_1px_10px_rgba(0,0,0,0.2)]"
           : "bg-transparent"
